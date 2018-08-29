@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script type="text/javascript" src="scripts/script.js"></script>
+    <title>MVA-KALKULATOR</title>
+</head>
+<body>
+<div class="grid-container">
+  <div class="header">
+    <h2 class="title">MVA-KALKULATOR</h2>
+  </div>
+  <div class="left" style="background-color:rgb(70,70,70);">
+    <h4 class="title">Dagens satser</h4>
+    <p>Under finner du dagens satser for de ulike produkttypene</p>
+    <p class="generell-mva">GENERELL<br>25%</p>
+    <p class="mat-mva">MAT<br>15%</p>
+    <p class="transport-mva">TRANSPORT<br>12%</p>
+  </div>
+  <div class="middle" style="background-color:rgb(90,90,90);">
+    <h4 class="title">Beregn Pris</h4>
+      <label for="price">Pris uten MVA i NOK</label>
+      <br><br>
+      <input class="textbox" type="text" name="price" id="price">
+      <br><br><br>
+      <label for="type">Velg Type</label>
+      <br><br>
+      <input class="btn" for="type" type="button" id="generell" value="Generell" style="background-color: rgb(64, 140, 142);">
+      <br><br>
+      <input class="btn" for="type" type="button" id="mat" value="Mat" style="background-color: rgb(49, 108, 109);">
+      <br><br>
+      <input class="btn" for="type" type="button" id="transport" value="Transport" style="background-color: rgb(37, 83, 84);">
+      <br>
+  </div>
+  <div class="right" style="background-color:rgb(70, 70, 70);">
+    <h4 class="title">Kalkulasjon</h4>
+    <div id="result"></div>
+  </div>
+  <div class="footer">
+    <p>MVA-KALKULATOREN AS</p>
+  </div>
+</div>
+</body>
+</html>
