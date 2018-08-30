@@ -74,23 +74,28 @@ function oppg6a() {
     document.getElementById("result").innerHTML = "";
     for(let i=1;i<100;i++) {
         document.getElementById("result").innerHTML += i + " ";
+        if (i%10==0) {
+            document.getElementById("result").innerHTML += "<br>";
+        }
     }
 }
 
 function oppg6b() {
     document.getElementById("result").innerHTML = "";
-    for(let i=1;i<100;i++) {
-        if (i%2 == 0) {
-            document.getElementById("result").innerHTML += i + " ";
+    for(let i=2;i<100;i+=2) {
+        document.getElementById("result").innerHTML += i + " ";
+        if (i%10==0) {
+            document.getElementById("result").innerHTML += "<br>";
         }
     }
 }
 
 function oppg6c() {
     document.getElementById("result").innerHTML = "";
-    for(let i=1;i<100;i++) {
-        if (i%2 != 0) {
-            document.getElementById("result").innerHTML += i + " ";
+    for(let i=1;i<100;i+=2) {
+        document.getElementById("result").innerHTML += i + " ";
+        if (i%3==0) {
+            document.getElementById("result").innerHTML += "<br>";
         }
     }
 }
@@ -100,6 +105,9 @@ function oppg6d() {
     for(let i=1;i<100;i++) {
         if (i%5 == 0) {
             document.getElementById("result").innerHTML += i + " ";
+            if (i%10==0) {
+                document.getElementById("result").innerHTML += "<br>";
+            }
         }
     }
 }
