@@ -3,6 +3,10 @@
     box-sizing: border-box;
 }
 
+button:focus {
+ outline: 0;   
+}
+
 body {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   text-align: center;
