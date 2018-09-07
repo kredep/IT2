@@ -84,24 +84,31 @@ async function loadTree() {
                     Button.innerHTML = "";
                     Button.addEventListener('click', e => {
                         //open the folder
-                        if (e.target.classList.contains('closed')) {
-                            e.path[1].classList.remove('closed')
-                            e.target.classList.remove('closed')
-                            e.target.classList.add('open')
-
-                            e.target.classList.add('glyphicon-folder-open')
-                            e.target.classList.remove('glyphicon-folder-close')
-
+                        if (e.target.classList.contains('folder')) {
+                            if (e.target.classList.contains('closed')) {
+                                e.path[1].classList.remove('closed')
+                                e.target.classList.remove('closed')
+                                e.target.classList.add('open')
+    
+                                e.target.classList.add('glyphicon-folder-open')
+                                e.target.classList.remove('glyphicon-folder-close')
+    
                             //close the folder
-                        } else if (e.target.classList.contains('open')) {
-                            e.target.classList.remove('open')
-                            e.path[1].classList.add('closed')
-                            e.target.classList.add('closed')
-
-                            e.target.classList.add('glyphicon-folder-close')
-                            e.target.classList.remove('glyphicon-folder-open')
-
+                            } else if (e.target.classList.contains('open')) {
+                                e.target.classList.remove('open')
+                                e.path[1].classList.add('closed')
+                                e.target.classList.add('closed')
+    
+                                e.target.classList.add('glyphicon-folder-close')
+                                e.target.classList.remove('glyphicon-folder-open')
+    
+                            }
                         }
+                    })
+                //Button is for a file, open on click
+                } else {
+                    Button.addEventListener('click', e => {
+                        window.open(baseURL.page + e.target.nextElementSibling.dataset.path)
                     })
                 }
 
