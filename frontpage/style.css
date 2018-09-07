@@ -108,7 +108,11 @@ body {
     text-align: center;
     background-color: rgb(225,225,225);
 }
-
+#loading {
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Montserrat', serif;
+}
 @media screen and (max-width: 600px) {
     body {
         padding: 0;
