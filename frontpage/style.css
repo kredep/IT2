@@ -56,7 +56,6 @@ body {
 }
 .folder:hover {
     cursor: pointer;
-    color: rgb(255, 213, 58);
 }
 
 .treeButton {
