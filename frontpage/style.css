@@ -1,13 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+body {
+    font-family: 'Monterrat', serif;
+    padding: 0 20% 0 20%;
+    background-color: rgb(100,100,100);
+}
 .name {
-    background-color: cyan;
+    background-color: rgb(225,225,225);
     height: 25px;
+    font-family: 'Montserrat', serif;
+    margin: 2px 0 2px 0;
+    font-size: 18px;
+}
+.name:hover {
+    background-color: rgb(175,175,175);
+    cursor: pointer;
 }
 
 #tree {
     cursor: context-menu;
-    width: 50%;
+    width: 100%;
     float: left;
     user-select: none;
+    background-color: rgb(225,225,225);
+    height: 100%;
 }
 
 .desc {
@@ -21,7 +36,6 @@
 }
 
 .tree {
-    background-color: crimson;
     overflow: hidden;
 }
 
@@ -29,14 +43,37 @@
     height: unset;
 }
 
-.treeButton {
+.folder {
     width: 25px;
-    height: 22px;
-    padding-top: 3px;
+    height: 25px;
+    padding-top: 5px;
+    padding-bottom: 2px;
     float: left;
-    background: red;
+    background: rgb(50,50,50);
     text-align: center;
     margin-right: 5px;
+    margin-top: 1px;
+    color: yellow;
+}
+.folder:hover {
+    cursor: pointer;
+}
+
+.treeButton {
+    width: 25px;
+    height: 25px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    float: left;
+    background: rgb(50,50,50);
+    color: rgb(225,225,225);
+    text-align: center;
+    margin-right: 5px;
+    margin-top: -1px;
+}
+.treeButton:hover {
+    background-color: black;
+    cursor: pointer;
 }
 
 .indent {
@@ -51,4 +88,15 @@
 
 .closed > .item {
     display: none;
+}
+.title {
+    text-align: center;
+    font-family: 'Montserrat', serif;
+    color: black;
+    letter-spacing: 4px;
+    border-bottom: 2px solid black;
+    padding-bottom: 25px;
+}
+.subtitle {
+    font-size: 0.6em;
 }
