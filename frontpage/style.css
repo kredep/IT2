@@ -53,7 +53,7 @@ body {
     text-align: center;
     margin-right: 5px;
     margin-top: 1px;
-    color: yellow;
+    color: rgb(255, 230, 132);
 }
 .folder:hover {
     cursor: pointer;
