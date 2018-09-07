@@ -10,6 +10,7 @@ body {
     font-family: 'Montserrat', serif;
     margin: 2px 0 2px 0;
     font-size: 18px;
+    padding-top: 1px;
 }
 .name:hover {
     background-color: rgb(175,175,175);
@@ -21,7 +22,7 @@ body {
     float: left;
     background-color: rgb(225,225,225);
     height: auto;
-    min-height: 100vh;
+    min-height: calc(100vh - 100px);
 }
 
 .desc {
@@ -101,4 +102,15 @@ body {
 }
 .subtitle {
     font-size: 0.6em;
+}
+.footer {
+    padding-top: 10px;
+    text-align: center;
+    background-color: rgb(225,225,225);
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        padding: 0;
+    }
 }
