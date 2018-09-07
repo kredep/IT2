@@ -1,3 +1,5 @@
+window.onload = loadTree;
+
 var baseURL = {
     api: 'https://api.github.com/repos/kredep/IT2/',
     raw: 'https://raw.githubusercontent.com/kredep/IT2/master/',
@@ -9,9 +11,14 @@ async function getSha() {
         var xhr = new XMLHttpRequest()
         xhr.open('GET', baseURL.api + 'branches', true)
         xhr.onload = function () {
-            resolve(
-                JSON.parse(this.response)[0].commit.sha
-            )
+            try {
+                resolve(
+                    JSON.parse(this.response)[0].commit.sha
+                )
+            } catch (e) {
+                document.getElementById('loading').innerHTML = '<span class="glyphicon glyphicon-alert" style="color:red;font-size: 40px;"></span><br>Noe gikk galt under innlasting!'
+                throw new Error(e)
+            }
         }
         xhr.send()
     })
@@ -163,8 +170,10 @@ async function loadTree() {
         }
         loadContent(tree, div, 1)
         resolve()
+        var element = document.getElementById('loading')
+        element.parentNode.removeChild(element)
+        console.log("sup")
     })
-
 }
 /**@description gets the text content of a file given a path */
 async function getTextFile(path) {
@@ -177,5 +186,3 @@ async function getTextFile(path) {
         xhr.send()
     })
 }
-
-loadTree()
