@@ -1,9 +1,9 @@
 var baseURL = {
-    api: 'https://api.github.com/repos/TheGrandCircuit/IT2/',
-    raw: 'https://raw.githubusercontent.com/TheGrandCircuit/IT2/master/',
-    page: 'https://thegrandcircuit.github.io/IT2/',
+    api: 'https://api.github.com/repos/kredep/IT2/',
+    raw: 'https://raw.githubusercontent.com/kredep/IT2/master/',
+    page: 'https://kredep.github.io/IT2/',
 }
-var Descriptions = {}
+
 async function getSha() {
     return new Promise(resolve => {
         var xhr = new XMLHttpRequest()
@@ -68,16 +68,20 @@ async function loadTree() {
                 DOMElement.id = element.path
 
                 /**@description button to expand a folder */
-                var Button = document.createElement('div')
+                var Button = document.createElement('span')
                 Button.classList.add('treeButton')
                 Button.classList.add('closed')
                 DOMElement.appendChild(Button)
-                //sets the file icon
-                Button.innerHTML = '&#9634'
+                Button.classList.add('glyphicon')
+                Button.classList.add('glyphicon-file')
                 //if element is a folder
                 //set the icon to an arrow and add functionality
                 if (element.type == 'tree') {
-                    Button.innerHTML = '&#9654'
+                    Button.classList.remove('glyphicon-file')
+                    Button.classList.add('glyphicon-folder-close')
+                    Button.classList.add('folder')
+                    Button.classList.remove('treeButton')
+                    Button.innerHTML = "";
                     Button.addEventListener('click', e => {
                         //open the folder
                         if (e.target.classList.contains('closed')) {
@@ -85,7 +89,8 @@ async function loadTree() {
                             e.target.classList.remove('closed')
                             e.target.classList.add('open')
 
-                            e.target.innerHTML = '&#9660'
+                            e.target.classList.add('glyphicon-folder-open')
+                            e.target.classList.remove('glyphicon-folder-close')
 
                             //close the folder
                         } else if (e.target.classList.contains('open')) {
@@ -93,7 +98,9 @@ async function loadTree() {
                             e.path[1].classList.add('closed')
                             e.target.classList.add('closed')
 
-                            e.target.innerHTML = '&#9654'
+                            e.target.classList.add('glyphicon-folder-close')
+                            e.target.classList.remove('glyphicon-folder-open')
+
                         }
                     })
                 }
@@ -103,12 +110,30 @@ async function loadTree() {
                 name.innerHTML = element.path.split('/').pop()
                 name.dataset.path = element.path
                 name.classList.add('name')
-                name.addEventListener('click', e => {
-                    viewDesc(e.target.dataset.path)
-                })
                 //add a link
-                    name.addEventListener('dblclick', e => {
-                        window.open(baseURL.page + e.target.dataset.path)
+                    name.addEventListener('click', e => {
+                        if (e.target.previousSibling.classList.contains('glyphicon-file')) {
+                            window.open(baseURL.page + e.target.dataset.path)
+                        } else if (e.target.previousSibling.classList.contains('folder')) {
+                            if (e.target.previousSibling.classList.contains('closed')) {
+                                e.path[1].classList.remove('closed')
+                                e.target.previousSibling.classList.remove('closed')
+                                e.target.previousSibling.classList.add('open')
+
+                                e.target.previousSibling.classList.add('glyphicon-folder-open')
+                                e.target.previousSibling.classList.remove('glyphicon-folder-close')
+
+                                //close the folder
+                            } else if (e.target.previousSibling.classList.contains('open')) {
+                                e.target.previousSibling.classList.remove('open')
+                                e.path[1].classList.add('closed')
+                                e.target.previousSibling.classList.add('closed')
+
+                                e.target.previousSibling.classList.add('glyphicon-folder-close')
+                                e.target.previousSibling.classList.remove('glyphicon-folder-open')
+
+                            }
+                        }
                     })
                 
                 DOMElement.appendChild(name)
@@ -144,21 +169,6 @@ async function getTextFile(path) {
         }
         xhr.send()
     })
-}
-
-/**@description parses and collects descriptions in one place */
-async function loadDesc(text) {
-    var descriptions = text.split('#')
-    for (let i = 1; i < descriptions.length; i += 2) {
-        Descriptions[descriptions[i]] = descriptions[i + 1].replace('\n', '').trim();
-
-    }
-}
-
-/**@description puts description in an element(ID="desc") given a path */
-function viewDesc(path) {
-    var box = document.getElementById('desc')
-    box.innerHTML = Descriptions[path] || 'This item has no description.'
 }
 
 loadTree()
