@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project browser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="frontpage/style.css">
+    <script src="frontpage/tree.js" defer></script>
 </head>
-<body>
-    <h1>hello world</h1>
+
+<body style="height:100vh; margin: 0;">
+    <div id="tree" class="tree">
+        <h1 class="title">IT2<br><span class="subtitle">Prosjekt utforsker</span></h1>
+        <div class="treeButton" style="padding-top: 4px; margin-top: 0;"><span class="glyphicon glyphicon-align-justify"></span></div>
+        <div class="name">root</div>
+    </div>
+    <a href="https://github.com/kredep/IT2">
+        <img src="https://image.flaticon.com/icons/svg/25/25231.svg" width="100" height="100" style="bottom:0;left:0;position: absolute;">
+    </a>
 </body>
 </html>
