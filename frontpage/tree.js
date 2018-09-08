@@ -44,8 +44,8 @@ function parseTree(rawTree) {
         const element = rawTree.tree[i];
         /**@type {Array} */
         var path = element.path.split('/')
-        if (path[path.length - 1] == 'DESCRIPTION.TXT') {
-            getTextFile(element.path).then(loadDesc)
+        var dontShowFiles = ['CNAME', 'LICENSE', 'README.md']
+        if (dontShowFiles.includes(path[path.length - 1])) {
             continue
         }
         var target = tree
