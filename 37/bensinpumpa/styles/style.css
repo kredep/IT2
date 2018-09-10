@@ -30,6 +30,7 @@ body {
   'left middle right'
   'footer footer footer';
   /* grid-column-gap: 10px; - if you want gap between the columns */
+  min-height: 100vh;
 }
 .grid-container2 {
     display: grid;
