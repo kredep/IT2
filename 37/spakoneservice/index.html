@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="scripts/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <title>Utslipp</title>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item" style="grid-column: 1 / 3;">
+            <h1 class="title">Spåkoneservice</h1>
+            <p>
+                Fyll ut skjemaet og motta din personlige spådom.
+            </p>
+        </div>
+        <div class="grid-item">
+            <label for="navn">Navn</label>
+            <br>
+            <input id="navn" type="text" name="navn">
+        </div>
+        <div class="grid-item">
+            <label for="alder">Alder</label>
+            <br>
+            <input id="alder" type="number" name="alder">
+        </div>
+        <div class="grid-item">
+            <label for="hoyde">Høyde:</label>
+            <br>
+            <input id="hoyde" type="text" name="hoyde">
+        </div>
+        <div class="grid-item">
+            <label for="gutt" class="check-container">Gutt<input name="kjønn" value="Gutt" id="gutt" type="radio"><span class="checkmark"></span></label>
+            <br>
+            <label for="jente" class="check-container">Jente<input name="kjønn" value="Jente" id="jente" type="radio"><span class="checkmark"></span></label>
+        </div>
+        <div class="grid-item">
+            <button id="vis">Vis spådom</button>
+        </div>
+        <div class="grid-item">
+            <button id="reset">Reset</button>
+        </div>
+        <div class="grid-item" style="grid-column: 1 / 3;">
+            <h3>Resultat:</h3>
+            <br>
+            <div id="result">
+        </div>
+    </div>
+    <div>
+    </div>
+    </div>
+</body>
+</html>
