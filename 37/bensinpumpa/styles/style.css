@@ -12,7 +12,7 @@ body {
 /* Style the header */
 .header {
   grid-area: header;
-  background-color: rgb(45, 13, 86);
+  background-color: rgb(50,50,50);
   padding: 30px;
   text-align: center;
   font-size: 35px;
@@ -57,7 +57,7 @@ body {
 /* Style the footer */
 .footer {
   grid-area: footer;
-  background-color: rgb(45, 13, 86);
+  background-color: rgb(50,50,50);
   padding: 10px;
   text-align: center;
 }
@@ -72,7 +72,7 @@ body {
 
 .bensin-pris {
   padding: 20px;
-  background-color: darkgreen;
+  background-color: rgb(55, 125, 142);
   border: 2px dashed white;
   color: white;
   text-shadow: 0px 2px rgb(50,50,50);
@@ -81,7 +81,7 @@ body {
 }
 .diesel-pris {
   padding: 20px;
-  background-color: darkblue;
+  background-color: rgb(55, 125, 142);
   border: 2px dashed white;
   color: white;
   text-shadow: 0px 2px rgb(50,50,50);
@@ -96,7 +96,7 @@ body {
 
 .btn {
   border: 2px dashed white;
-  background-color: darkred;
+  background-color: rgb(50,50,50);
   padding: 10px;
   color: white;
   font-size: 1.5em;
@@ -104,7 +104,7 @@ body {
   margin: 0;
 }
 .btn:hover {
-  background-color: red;
+  background-color: rgb(100,100,100);
 }
 
 /* CUSTOM CHECKBOX */
@@ -138,11 +138,11 @@ body {
     left: 0;
     height: 30px;
     width: 30px;
-    background-color: rgb(0, 50, 50);
+    background-color: rgb(50, 50, 50);
     border-radius: 20px;
 }
 .check-container:hover input ~ .checkmark, input[type='checkbox']:focus ~ .checkmark {
-    background-color: red;
+    background-color: rgb(50,50,50);
 }
 .checkmark:after {
     content: "";
@@ -168,7 +168,7 @@ body {
 
 .textbox {
   border: 2px dashed white;
-  background-color: blue;
+  background-color: rgb(50,50,50);
   font-size: 1.5em;
   padding: 10px;
   text-align: center;
