@@ -2,6 +2,14 @@ window.onload = startUp;
 
 function startUp() {
   document.getElementById("beregn").onclick = run; // Listener for button with id "beregn", on click function "run" will run
+  document.getElementById("reset").onclick = reset;
+}
+
+function reset() {
+  document.getElementById("bensin").checked = false;
+  document.getElementById("diesel").checked = false;
+  document.getElementById("liter").value = "";
+  document.getElementById("result").innerHTML = "";
 }
 
 function run() {
