@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<script type="text/javascript" src="scripts/script.js"></script>
+<title>Bensinpumpa</title>
+</head>
+<body>
+<div class="grid-container">
+  <div class="header">
+    <h2 class="title">Bensinpumpa</h2>
+  </div>
+  <div class="left" style="background-color:rgb(70, 17, 137);">
+    <h4 class="title">Dagens priser</h4>
+    <p class="bensin-pris">BENSIN<br>13,40,-</p>
+    <p class="diesel-pris">DIESEL<br>12,90,-</p>
+  </div>
+  <div class="middle" style="background-color:rgb(90, 22, 175);">
+    <h4 class="title">Kjøp drivstoff</h4>
+    <div class="skjema">
+      <label for="bensin" class="check-container">Bensin<input name="drivstoff" value="Bensin" id="bensin" type="radio"><span class="checkmark"></span></label>
+      <br>
+      <label for="diesel" class="check-container">Diesel<input name="drivstoff" value="Diesel" id="diesel" type="radio"><span class="checkmark"></span></label>
+      <br><br><br><br><br>
+    </div>
+      <label for="liter">Antall liter</label>
+      <br>
+      <input class="textbox" type="text" name="liter" id="liter">
+      <br><br>
+      <input class="btn" type="button" id="beregn" value="Beregn">
+      <br><br>
+      <input class="btn" type="button" id="reset" value="Reset">
+      <br>
+  </div>
+  <div class="right" style="background-color:rgb(70, 17, 137);">
+    <h4 class="title">Kalkulasjon</h4>
+    <div id="result"></div>
+  </div>
+  <div class="footer">
+    <p>BENSINPUMPA AS</p>
+  </div>
+</div>
+</body>
+</html>
