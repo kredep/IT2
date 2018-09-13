@@ -11,6 +11,7 @@ function reset() {
     document.getElementById("hoyde").value = "";
     document.getElementById("gutt").checked = false;
     document.getElementById("jente").checked = false;
+    document.getElementById("result").innerHTML = "";
 }
 
 function vis() {
