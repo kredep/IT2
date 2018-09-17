@@ -7,6 +7,7 @@ function startUp() {
     document.getElementById("oppg4").onclick = oppg4;
     document.getElementById("oppg5").onclick = oppg5;
     document.getElementById("oppg6").onclick = oppg6;
+    document.getElementById("oppg7").onclick = oppg7;
 }
 
 function reset() {
@@ -61,7 +62,22 @@ function oppg5() {
     document.getElementById("result").innerHTML = st;
 }
 
+function stars(x) {
+    document.getElementById("result").innerHTML = "";
+    for (let x=0;x<arguments.length;x++) {
+        var st = "";
+        for (let i = 0;i<arguments[x];i++) {
+            st += "*";
+        }
+        document.getElementById("result").innerHTML += st + "<br>";
+    }
+}
+
 function oppg6() {
+    stars(4,1,3,1,4);
+}
+
+function oppg7() {
     var st = "";
     var z = 0;
     for(let i=0;i<6;i++) {
