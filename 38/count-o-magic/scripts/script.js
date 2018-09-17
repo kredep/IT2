@@ -18,9 +18,10 @@ function run() {
 }
 
 function loop(i,j,k,t) {
-    var tall = 0;
-    for(let x=i;x<1000;x+=t*100) {
-        for(let y=j;y<100;y+=t*10) {
+    var tall = i*100+j*10+k;
+    console.log(tall);
+    for(let x=i*100;x<1000;x+=100) {
+        for(let y=j*10;y<100;y+=10) {
             for(let z=k;z<10;z+=t) {
                 tall = x+y+z;
                 console.log(tall);
