@@ -63,6 +63,9 @@ function oppg5() {
 }
 
 function stars(x) {
+     /**
+     * Man må ikke bruke if-setninger :)
+     */
     document.getElementById("result").innerHTML = "";
     for (let x=0;x<arguments.length;x++) {
         var st = "";
