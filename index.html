@@ -1,25 +1,66 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Project browser</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="frontpage/style.css">
-    <script src="frontpage/tree.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" type="text/css" href="frontpage/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="frontpage/style.css">
+    <script src="scripts/parallax.min.js"></script>
+    <script src="scripts/tree.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <title>Welcome</title>
 </head>
-
-<body>
-    <div id="tree" class="tree">
-        <h1 class="title">IT2<br><span class="subtitle">Prosjekt utforsker</span></h1>
-        <div class="treeButton" style="padding-top: 4px; margin-top: 0; padding-right: 3px;"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
-        <div class="name" style="user-select: none; padding-top: 0;">root</div>
-        <div id="loading">loading...</div>
-    </div>
-    <footer class="footer">
-        <a href="https://github.com/kredep/IT2"><img src="https://image.flaticon.com/icons/svg/25/25231.svg" width="100" height="100"></a>
-    </footer>
+<body style="background-image: url('https://wallpaper-house.com/data/out/9/wallpaper2you_347831.jpg'); background-repeat: no-repeat; background-attachment: fixed;">
+    <div class="container" style="background-color: transparent;">
+        <nav class="navbar navbar-default navbar-static-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNAV">
+                            <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNAV">
+                        <ul class="nav navbar-nav" id="anim">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle nav_button shadow" data-toggle="dropdown" href="#">PROSJEKTER<span class="glyphicon glyphicon-triangle-bottom dropdown-icon"></span>
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <a class="nav_button_dropdown" href="http://github.com/kredep/gode_tanker">GODE TANKER</a>
+                                    <a class="nav_button_dropdown" href="http://elevweb2.skit.no/0209krpe/mcbergbys_rework/mcbergbys/">MCBERGBYS</a>
+                                    <a class="nav_button_dropdown" href="explorer.html">IT2</a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="parallax-window header" data-speed="0.5" data-parallax="scroll" data-z-index="1" data-image-src="#" style="min-height: 100vh;">
+                <div class="parallax-text">
+                    <div id="tree" class="tree">
+                        <h1 class="title">IT2<br><span class="subtitle">Prosjekt utforsker</span></h1>
+                        <div id="explorer">
+                            <div class="treeButton" style="padding-top: 3px; margin-top: 0; padding-right: 3px;"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+                            <div class="name" style="user-select: none; padding-top: 0;">root</div>
+                            <div id="loading">loading...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax-window" style="background-color: #0e0e0e;">
+                <div class="parallax-text footer">
+                    <h1>OM</h1>
+                    <p class="about">Nettside for test av prosjektutforsker</p>
+                    <div class="social_media_container">
+                        <a href="http://guthub.com/kredep/" target="_blank"><img class="social_media" src="images/github_logo.png" alt="GitHub"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
