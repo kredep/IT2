@@ -1,11 +1,147 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500');
 body {
-    font-family: 'Monterrat', serif;
-    padding: 0 20% 0 20%;
-    background-color: rgb(100,100,100);
+    margin: 0;
+    font-family: 'Oswald', serif;
+    padding-top: 0;
 }
+h1 {
+    font-weight: 400;
+}
+::selection {
+    background: #fecf5f;
+  }
+.nav_button {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: #bdbdbd;
+    margin-left: 10px;
+    transition: all 0.15s linear;
+}
+.nav_button:hover {
+    color: #fecf5f;
+}
+.nav_button_dropdown {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: #bdbdbd;
+    padding: 5px 0 5px 10px;
+    width: 100%;
+    float: left;
+    transition: all 0.15s linear;
+}
+.nav_button_dropdown:hover {
+    color: #0e0e0e;
+    background-color: #fecf5f;
+}
+.dropdown-icon {
+    font-size: 10px;
+    top: -1px;
+    left: 3px;
+}
+.parallax-window {
+    min-height: auto;
+    background: transparent;
+    text-align: center;
+}
+.parallax-text {
+    color: white;
+    margin: 0 auto;
+    overflow: auto;
+    position: relative;
+    z-index: 2;
+    padding: 10px 5% 0 5%;
+    height: auto;
+    text-align: center;
+    font-size: 26px;
+}
+.box-text {
+    float: left;
+    padding-left: 50px;
+    text-align: left;
+}
+.container {
+    width: 100%;
+    margin: 0;
+    background-color: #0e0e0e;
+    font-size: 24px;
+    overflow: hidden;
+}
+.parallax-content {
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+    height: 750px;
+    text-align: center;
+}
+#initial-window {
+    height: 100vh;
+}
+#header {
+    height: 50px;
+}
+.content {
+    position: absolute;
+    left: 50%;
+    top: 313px;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    font-size: 35px;
+    color: white;
+    text-shadow: 0px 3px hsla(0,0%,10%,0.7);
+}
+.shadowed {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
+.brand {
+    margin-top: 83vh;
+    position: absolute;
+    left: 32%;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    color: white;
+}
+.footer {
+    /* padding-bottom: 0; */
+    font-size: .85em;
+}
+.about {
+    width: 650px;
+    margin: auto;
+}
+.shadow {
+    text-shadow: 0px 3px hsla(0,0%,10%,0.7);
+}
+.social_media {
+    height: 40px;
+    margin: 8px;
+    transition: all 0.15s linear;
+    filter: grayscale(100%);
+}
+.social_media:hover {
+    filter: none;
+}
+.social_media_container {
+    margin-top: 30px;
+}
+@media (max-width: 750px) {
+    .about {
+        width: 90%;
+    }
+    .title {
+        font-size: 7vw;
+    }
+}
+
 .name {
-    background-color: rgb(225,225,225);
+    color: white;
     height: 25px;
     font-family: 'Montserrat', serif;
     margin: 2px 0 2px 0;
@@ -13,16 +149,19 @@ body {
     padding-top: 1px;
 }
 .name:hover {
-    background-color: rgb(175,175,175);
+    background-color: rgba(255,255,255,.2);
     cursor: pointer;
 }
 
 #tree {
-    width: 100%;
-    float: left;
-    background-color: rgb(225,225,225);
-    height: auto;
-    min-height: calc(100vh - 100px);
+    text-align: left;
+    margin: 0 20%;
+    margin-top: 20vh;
+    margin-bottom: 50px;
+}
+
+#explorer {
+    background-color: rgba(50,50,50,0.5);
 }
 
 .desc {
@@ -49,14 +188,19 @@ body {
     padding-top: 5px;
     padding-bottom: 2px;
     float: left;
-    background: rgb(50,50,50);
+    background-color: rgb(50,50,50);
     text-align: center;
     margin-right: 5px;
-    margin-top: 1px;
+    margin-top: 3px;
     color: rgb(255, 230, 132);
+    font-size: 16px;
 }
 .folder:hover {
     cursor: pointer;
+}
+
+.folder:hover ~ .name {
+    background-color: rgba(255,255,255,.2);
 }
 
 .treeButton {
@@ -67,13 +211,14 @@ body {
     padding-bottom: 2px;
     float: left;
     background: rgb(50,50,50);
-    color: rgb(225,225,225);
+    color: white;
     text-align: center;
     margin-right: 5px;
-    margin-top: -1px;
+    margin-top: 1px;
+    font-size: 16px;
 }
 .treeButton:hover ~ .name {
-    background-color: rgb(175,175,175);
+    background-color: rgba(255,255,255,.2);
 }
 .treeButton:hover {
     cursor: pointer;
@@ -94,20 +239,131 @@ body {
     display: none;
 }
 .title {
-    text-align: center;
+    text-align: right;
     font-family: 'Montserrat', serif;
-    color: black;
     letter-spacing: 4px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
     padding-bottom: 25px;
 }
 .subtitle {
     font-size: 0.6em;
 }
-.footer {
-    padding-top: 10px;
+#loading {
     text-align: center;
-    background-color: rgb(225,225,225);
+    font-size: 18px;
+    font-family: 'Montserrat', serif;
+}
+@media screen and (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+.name {
+    color: white;
+    height: 25px;
+    font-family: 'Montserrat', serif;
+    margin: 2px 0 2px 0;
+    font-size: 18px;
+    padding-top: 1px;
+}
+.name:hover {
+    background-color: rgba(255,255,255,.2);
+    cursor: pointer;
+}
+
+#tree {
+    text-align: left;
+    margin: 0 20%;
+    margin-top: 20vh;
+    margin-bottom: 50px;
+}
+
+#explorer {
+    background-color: rgba(50,50,50,0.5);
+}
+
+.desc {
+    height: 50%;
+    width: 50%;
+    background-color: aquamarine;
+    float: left;
+}
+.desc>h1 {
+    margin: 0;
+}
+
+.tree {
+    overflow: hidden;
+}
+
+.tree:hover {
+    height: unset;
+}
+
+.folder {
+    width: 25px;
+    height: 25px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    float: left;
+    background-color: rgb(50,50,50);
+    text-align: center;
+    margin-right: 5px;
+    margin-top: 3px;
+    color: rgb(255, 230, 132);
+    font-size: 16px;
+}
+.folder:hover {
+    cursor: pointer;
+}
+
+.folder:hover ~ .name {
+    background-color: rgba(255,255,255,.2);
+}
+
+.treeButton {
+    width: 25px;
+    height: 25px;
+    padding-top: 5px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+    float: left;
+    background: rgb(50,50,50);
+    color: white;
+    text-align: center;
+    margin-right: 5px;
+    margin-top: 1px;
+    font-size: 16px;
+}
+.treeButton:hover ~ .name {
+    background-color: rgba(255,255,255,.2);
+}
+.treeButton:hover {
+    cursor: pointer;
+}
+
+.indent {
+    height: 25px;
+    width: 25px;
+    float: left;
+}
+
+.item {
+    margin-left: 25px;
+    user-select: none;
+}
+
+.closed > .item {
+    display: none;
+}
+.title {
+    text-align: right;
+    font-family: 'Montserrat', serif;
+    letter-spacing: 4px;
+    border-bottom: 2px solid white;
+    padding-bottom: 25px;
+}
+.subtitle {
+    font-size: 0.6em;
 }
 #loading {
     text-align: center;
