@@ -1,4 +1,12 @@
-window.onload = loadTree;
+window.onload = startUp;
+
+function startUp() {
+    loadTree();
+    var xplr = document.getElementById('explorer');
+    xplr.addEventListener('onresize', function(){
+        alert("works");
+    });
+}
 
 var baseURL = {
     api: 'https://api.github.com/repos/kredep/IT2/',
@@ -44,6 +52,7 @@ function parseTree(rawTree) {
         const element = rawTree.tree[i];
         /**@type {Array} */
         var path = element.path.split('/')
+        console.log(path)
         var dontShowFiles = ['CNAME', 'LICENSE', 'README.md']
         if (dontShowFiles.includes(path[path.length - 1])) {
             continue
@@ -62,7 +71,7 @@ function parseTree(rawTree) {
 async function loadTree() {
     var tree = parseTree(await getRawTree())
     return new Promise(resolve => {
-        var div = document.getElementById('tree')
+        var div = document.getElementById('explorer')
         /**@param item
          * @param {HTMLElement} parent */
         function loadContent(item, parent, indent) {
