@@ -15,6 +15,8 @@ function run() {
     } else if (lisenser <= 0) {
         // Antall lisenser mindre enn eller lik null
         document.getElementById("result").innerHTML = "Antall lisenser må være over null.";
+    } else if (!Number.isInteger(Number(lisenser))) {
+        document.getElementById("result").innerHTML = "Det selges kun hele lisenser.";
     } else {
         // Beregner pris og rabatt;
         var prosent = 0;
