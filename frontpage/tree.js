@@ -49,7 +49,6 @@ function parseTree(rawTree) {
         const element = rawTree.tree[i];
         /**@type {Array} */
         var path = element.path.split('/')
-        console.log(path)
         var dontShowFiles = ['CNAME', 'LICENSE', 'README.md']
         if (dontShowFiles.includes(path[path.length - 1])) {
             continue
@@ -178,7 +177,6 @@ async function loadTree() {
         resolve()
         var element = document.getElementById('loading')
         element.parentNode.removeChild(element)
-        console.log("sup")
     })
 }
 /**@description gets the text content of a file given a path */
