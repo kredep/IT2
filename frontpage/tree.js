@@ -34,7 +34,7 @@ async function getRawTree() {
     var tree = await getSha()
     return new Promise(resolve => {
         var xhr = new XMLHttpRequest()
-        xhr.open('GET', baseURL.api + 'git/trees/' + tree + '?recursive=1', true)
+        xhr.open('GET', baseURL.api + 'git/trees/' + tree + '?recursive=1&access_token=' + baseURL.token, true)
         xhr.onload = function () {
             resolve(JSON.parse(this.response))
         }
