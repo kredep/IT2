@@ -2,10 +2,6 @@ window.onload = startUp;
 
 function startUp() {
     loadTree();
-    var xplr = document.getElementById('explorer');
-    xplr.addEventListener('onresize', function(){
-        alert("works");
-    });
 }
 
 var baseURL = {
