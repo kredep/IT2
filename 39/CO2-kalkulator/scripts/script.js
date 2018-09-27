@@ -30,6 +30,7 @@ function run() {
       // Validerer input
       if (isNaN(length) || isNaN(passengers)) {
         console.log("Sjekk input");
+        running = false;
       } else {
         // Beregner co2 / pers for bilen
         var emissionFromCar = co2 / Number(passengers);
@@ -63,7 +64,6 @@ function run() {
             }
           }
         }
-        running = false;
       }
   } else {
     console.log("Funksjonen er ikke ferdig enda!");
