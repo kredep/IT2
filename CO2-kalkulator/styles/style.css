@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin: 0;
+  color: white;
+  background-color: rgb(50,50,50);
+  border: 2px solid white;
+}
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    'a a'
+    'b e'
+    'c e'
+    'd e';
+    grid-template-columns: 33% auto;
+    min-height: calc(100vh - 4px);
+}
+
+.grid-item {
+  border: 2px solid white;
+  padding: 40px;
+  background-color: rgb(50,50,50);;
+}
+
+#header {
+  grid-area: a;
+}
+#input1 {
+  grid-area: b;
+  background-color: rgb(100,100,100);
+}
+#input2 {
+  grid-area: c;
+  background-color: rgb(80, 80, 80);
+}
+#input3 {
+  grid-area: d;
+  background-color: rgb(70, 70, 70)
+}
+#result {
+  grid-area: e;
+  background-color: rgb(60,60,60);
+}
+.btn {
+  border: 2px solid white;
+  background-color: rgb(50,50,50);
+  padding: 10px;
+  color: white;
+  font-size: 1.5em;
+  width: 80%;
+  margin: 0;
+}
+.btn:focus {
+  outline: 0;
+}
+.btn:hover {
+  background-color: rgb(70,70,70);
+}
+#submit {
+  background-color: rgb(110,150,150);
+}
+#submit:hover {
+  background-color: rgb(80,120,120);
+}
+
+#graphs {
+  display: flex;
+  width: 100%;
+  height: 90%;
+}
+
+/* GRAPHS */
+.graph-container {
+    float: left;
+    width: calc(100% / 5);
+    align-self: flex-end;
+}
+.graph-template {
+  height: 0px;
+  background-color: yellow;
+  margin: 10px;
+  box-shadow: -5px 5px black;
+}
+#title {
+  margin: 0;
+}
