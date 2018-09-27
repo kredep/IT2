@@ -82,8 +82,8 @@ body {
     align-self: flex-end;
 }
 .graph-template {
-  height: 0px;
-  background-color: yellow;
+  height: 1px;
+  background-color: gray;
   margin: 10px;
   box-shadow: -5px 5px black;
 }
