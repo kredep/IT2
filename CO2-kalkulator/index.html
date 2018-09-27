@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<script type="text/javascript" src="scripts/script.js"></script>
+<title>CO2-Kalkulatoren</title>
+</head>
+<body>
+  <div class="grid-container">
+    <div id="header" class="grid-item">
+      <h1>CO2-Kalkulatoren</h1>
+    </div>
+    <div id="input1" class="grid-item">
+      <h2>Turens lengde i km</h2>
+      <input id="length" class="btn" type="text">
+    </div>
+    <div id="input2" class="grid-item">
+      <h2>Antall personer i bilen</h2>
+      <input id="passengers" class="btn" type="text">
+    </div>
+    <div id="input3" class="grid-item">
+      <input id="submit" class="btn" type="button" value="Beregn">
+    </div>
+    <div id="result" class="grid-item">
+      <h1 id="title">Histogram</h1>
+      <div id="graphs">
+        <div class="graph-container">
+          <p></p>
+          <div id="car" class="graph-template"></div>
+          <p>Bil</p>
+        </div>
+        <div class="graph-container">
+          <p></p>
+          <div id="bus-city" class="graph-template"></div>
+          <p>Buss i by</p>
+        </div>
+        <div class="graph-container">
+          <p></p>
+          <div id="train" class="graph-template"></div>
+          <p>Tog</p>
+        </div>
+        <div class="graph-container">
+          <p></p>
+          <div id="bus-open-road" class="graph-template"></div>
+          <p>Bus på landevei</p>
+        </div>
+        <div class="graph-container">
+          <p></p>
+          <div id="plane-scandinavia" class="graph-template"></div>
+          <p>Fly i Skandinavia</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
