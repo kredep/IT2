@@ -1,16 +1,19 @@
 window.onload = startUp;
 
 var co2 = 150; // Gram utslipp per kilometer fra en bil
-var divHeight = 280; // Største høyde av søyle
-// Assosiativ liste med co2 per person per km
-var emission = [];
+var divHeight = 280; // Max-høyde for søyle i histogrammet målet i piksler
 var running = false; // Boolean for å forhindre overlapping
+// Liste for lagring av co2 utslipp per person per kilometer basert på transportmiddel
+var emission = [];
 emission['bus-city'] = 103;
 emission['train'] = 32;
 emission['bus-open-road'] = 52;
 emission['plane-scandinavia'] = 340;
 
 function startUp() {
+  /**
+   * Startfunksjonen etter siden har lastet inn
+   */
   // Lytter til knappen
   submit.onclick = run;
 }
@@ -34,7 +37,7 @@ function run() {
       } else {
         // Beregner co2 / pers for bilen
         var emissionFromCar = co2 / Number(passengers);
-        // Legger til i listen utslipp til kjøretøy
+        // Legger til i listen over utslipp per transportmiddel
         emission['car'] = emissionFromCar;
 
         // Finner det høyeste utslippet / pers (pga. søylehøyde)
