@@ -8,7 +8,6 @@ body {
   margin: 0;
   color: white;
   background-color: rgb(50,50,50);
-  border: 2px solid white;
 }
 .grid-container {
     display: grid;
@@ -18,11 +17,10 @@ body {
     'c e'
     'd e';
     grid-template-columns: 33% auto;
-    min-height: calc(100vh - 4px);
+    min-height: 100vh;
 }
 
 .grid-item {
-  border: 2px solid white;
   padding: 40px;
   background-color: rgb(50,50,50);;
 }
