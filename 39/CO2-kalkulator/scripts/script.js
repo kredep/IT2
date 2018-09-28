@@ -1,7 +1,7 @@
 window.onload = startUp;
 
 var co2 = 150; // Gram utslipp per kilometer fra en bil
-var divHeight = 300; // Største høyde av søyle
+var divHeight = 280; // Største høyde av søyle
 // Assosiativ liste med co2 per person per km
 var emission = [];
 var running = false; // Boolean for å forhindre overlapping
