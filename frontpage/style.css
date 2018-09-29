@@ -380,4 +380,8 @@ h1 {
     body {
         padding: 0;
     }
+    .name {
+        font-size: 14px;
+        padding-top: 3px;
+    }
 }
