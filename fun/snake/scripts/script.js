@@ -59,10 +59,9 @@ function generateApple() {
             }
         }
     }
-    for (let i=0;i<overlapIndexes.length;i++) {
+    for (let i=overlapIndexes.length-1;i>=0;i--) {
         slots.splice(overlapIndexes[i],1);
     }
-    console.log(a-slots.length);
     return slots[random(0,slots.length-1)];
 }
 
