@@ -1,10 +1,10 @@
-window.onload = run;
+window.onload = listen;
 
-var size = 40; // cube width & height
+var size = 30; // cube width & height
 var borderWidth = 2; // pixels
 var xTiles = 36;
 var yTiles = 18;
-var speed = 250;
+var speed = 1000;
 var grid = [];
 var snake = [];
 snake[0] = [4,5];
@@ -39,13 +39,18 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+function listen() {
+    document.getElementById("play").onclick = run;
+}
+
 function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
 function generateApple() {
-    var slots = grid.slice();
+    var slots = grid.slice(0,grid.length-1);
     var overlapIndexes = [];
+    let a = slots.length;
     for (let i=0;i<slots.length;i++) {
         for (let x=0;x<snake.length;x++) {
             if (slots[i][0] == snake[x][0] && slots[i][1] == snake[x][1]) {
@@ -57,6 +62,7 @@ function generateApple() {
     for (let i=0;i<overlapIndexes.length;i++) {
         slots.splice(overlapIndexes[i],1);
     }
+    console.log(a-slots.length);
     return slots[random(0,slots.length-1)];
 }
 
@@ -65,6 +71,11 @@ function pos(p) {
 }
 
 function run() {
+    size = Number(document.getElementById("size").value);
+    xTiles = Number(document.getElementById("gridx").value);
+    yTiles = Number(document.getElementById("gridy").value);
+    speed = Number(document.getElementById("speed").value);
+
     canvas = document.getElementById("myGame");
     ctx = canvas.getContext("2d");
 
