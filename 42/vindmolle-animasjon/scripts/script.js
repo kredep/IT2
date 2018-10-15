@@ -1,7 +1,8 @@
 window.onload = startUp;
 
-var speed;
+var rpm;
 var iv;
+var speed;
 
 function startUp() {
     submit.onclick = run;
@@ -9,7 +10,8 @@ function startUp() {
 
 function run() {
     clearInterval(iv);
-    speed = document.getElementById("speed").value;
+    rpm = document.getElementById("rpm").value;
+    speed = 60 / rpm;
     animer();
     iv = setInterval(animer, speed*1000);
 }
