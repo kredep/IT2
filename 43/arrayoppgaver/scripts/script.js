@@ -50,7 +50,6 @@ function oppgave2() {
 
     var sum = 0;
     var negative = 0;
-    var snitt = 0;
     var lavest = 0;
     var sumPartall = 0;
 
@@ -59,7 +58,6 @@ function oppgave2() {
         if (tall[i] < 0) {
             negative += 1;
         }
-        snitt += tall[i];
         if (i == 0) {
             lavest = tall[i];
         } else if (tall[i] < lavest) {
@@ -69,6 +67,6 @@ function oppgave2() {
             sumPartall += tall[i];
         }
     }
-    snitt /= tall.length;
+    var snitt = (sum / tall.length).toFixed(2);
     document.getElementById("resultat").innerHTML = "<br>Sum: " + sum + "<br>Negative tall: " + negative + "<br>Gjennomsnitt: " + snitt + "<br>Laveste tall: " + lavest + "<br>Sum av partall: " + sumPartall;
 }
