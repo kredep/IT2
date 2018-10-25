@@ -3,7 +3,7 @@ window.onload = startUp;
 var myArray = [];
 
 function startUp() {
-    printArray();
+    skrivUt();
     document.getElementById("legg-til").onclick = nyBokstav;
     document.getElementById("sort").onclick = sort;
     document.getElementById("annenhver").onclick = annenHver;
@@ -12,16 +12,16 @@ function startUp() {
 
 function sort() {
     myArray.sort();
-    printArray();
+    skrivUt();
 }
 
 function nyBokstav() {
     var bokstav = document.getElementById("bokstav").value;
     myArray.push(bokstav);
-    printArray();
+    skrivUt();
 }
 
-function printArray() {
+function skrivUt() {
     if (myArray.length > 0) {
         document.getElementById("liste").innerHTML = "<ul>";
         for (let i=0;i<myArray.length;i++) {
@@ -50,6 +50,7 @@ function oppgave2() {
 
     var sum = 0;
     var negative = 0;
+    var snitt = 0;
     var lavest = 0;
     var sumPartall = 0;
 
@@ -67,6 +68,11 @@ function oppgave2() {
             sumPartall += tall[i];
         }
     }
-    var snitt = (sum / tall.length).toFixed(2);
-    document.getElementById("resultat").innerHTML = "<br>Sum: " + sum + "<br>Negative tall: " + negative + "<br>Gjennomsnitt: " + snitt + "<br>Laveste tall: " + lavest + "<br>Sum av partall: " + sumPartall;
+    snitt = (sum / tall.length).toFixed(2);
+    document.getElementById("resultat").innerHTML = 
+        "<br>Sum: " + sum + 
+        "<br>Negative tall: " + negative + 
+        "<br>Gjennomsnitt: " + snitt + 
+        "<br>Laveste tall: " + lavest + 
+        "<br>Sum av partall: " + sumPartall;
 }
