@@ -71,18 +71,13 @@ function oppgave2() {
 
     var sum = 0;
     var negative = 0;
-    var lavest = 0;
+    var lavest = tall.sort(function(a,b){return(a-b)})[0];
     var sumPartall = 0;
 
     for (let i=0;i<tall.length;i++) {
         sum += tall[i];
         if (tall[i] < 0) {
             negative += 1;
-        }
-        if (i == 0) {
-            lavest = tall[i];
-        } else if (tall[i] < lavest) {
-            lavest = tall[i];
         }
         if (tall[i] % 2 == 0) {
             sumPartall += tall[i];
