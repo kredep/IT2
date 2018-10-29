@@ -67,7 +67,7 @@ function oppgave2() {
      * Funksjon som løser oppgave 2
      * Traverserer lista og finner statistikken som trengs
      */
-    var tall = [34,53,2,3,34,26,26,85,3,4,98,2,12];
+    var tall = [34,53,-2,-3,34,26,26,85,3,4,98,2,12];
 
     var sum = 0;
     var negative = 0;
