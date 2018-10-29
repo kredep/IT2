@@ -1,35 +1,95 @@
-<!DOCTYPE html>
-<html lang="nb">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="scripts/script.js"></script>
-    <title>Arrayoppgaver</title>
-</head>
-<body>
-    <div style="float: left; margin-right: 50px;">
-        <h2>Arrayoppgaver</h2>
-        <h3>Oppgave 1</h3>
-        <h3>Oversikt over lista:</h3>
-        <div id="liste"></div>
-        <br><br>
+// Kjører startfunksjonen etter siden har lastet inn
+window.onload = startUp;
 
-        <input type="text" id="bokstav" placeholder="Ny bokstav">
-        <input type="button" id="legg-til" value="Legg til bokstav">
-        <br><br>
-        <input type="button" value="Sorter alfabetisk" id="sort">
-        <br><br>
-        <input type="button" value="Skriv ut annen hver" id="annenhver">
-        <br>
-        <h3>Annenhver:</h3>
-        <div id="annenhver-div"></div>
-    </div>
-    <div style="float:left;">
-        <h3>Oppgave 2</h3>
-        <p>Liste: [34,53,-2,-3,34,26,26,85,3,4,98,2,12] </p>
-        <input type="button" value="Finn statistikk" id="stats">
-        <div id="resultat"></div>
-    </div>
-</body>
-</html>
+// Deklarerer en array for bokstavene
+// Bruker [] og ikke 'new Array()' da dette er dårlig praksis
+var myArray = [];
+
+function startUp() {
+    skrivUt();
+    // Lytter til knapper
+    document.getElementById("legg-til").onclick = nyBokstav;
+    document.getElementById("sort").onclick = sort;
+    document.getElementById("annenhver").onclick = annenHver;
+    document.getElementById("stats").onclick = oppgave2;
+}
+
+function sort() {
+    // Sorterer lista og oppdaterer på nettsiden ved å skrive ut på nytt
+    myArray.sort();
+    skrivUt();
+}
+
+function nyBokstav() {
+    /**
+     * Legger til en ny bokstav i lista
+     * Oppdaterer nettsiden ved å skrive ut på nytt
+     */
+    var bokstav = document.getElementById("bokstav").value;
+    myArray.push(bokstav);
+    skrivUt();
+}
+
+function skrivUt() {
+    /**
+     * Skriver ut arrayen ved å traversere arrayen
+     * Sender feilmelding dersom arrayen er tom
+     */
+    if (myArray.length > 0) {
+        document.getElementById("liste").innerHTML = "<ul>";
+        for (let i=0;i<myArray.length;i++) {
+            document.getElementById("liste").innerHTML += '<li>' + myArray[i] +'</li>';
+        }
+        document.getElementById("liste").innerHTML += "</ul>";
+    } else {
+        document.getElementById("liste").innerHTML = "Lista er tom";
+    }
+}
+
+function annenHver() {
+    /**
+     * Funksjon som skriver ut annen hver av elementene i arrayen
+     * Sender feilmelding dersom lista er tom
+     */
+    if (myArray.length > 0) {
+        document.getElementById("annenhver-div").innerHTML = "<ul>";
+        for (let i=0;i<myArray.length;i+=2) {
+            document.getElementById("annenhver-div").innerHTML += "<li>" + myArray[i] + "</li>";
+        }
+        document.getElementById("annenhver-div").innerHTML += "</ul>";
+    } else {
+        document.getElementById("annenhver-div").innerHTML = "Lista er tom, kan ikke skrive ut annen hver";
+    }
+}
+
+function oppgave2() {
+    /**
+     * Funksjon som løser oppgave 2
+     * Traverserer lista og finner statistikken som trengs
+     */
+    var tall = [34,53,-2,-3,34,26,26,85,3,4,98,2,12];
+
+    var sum = 0;
+    var negative = 0;
+    var lavest = tall.sort(function(a,b){return(a-b)})[0];
+    var sumPartall = 0;
+
+    for (let i=0;i<tall.length;i++) {
+        sum += tall[i];
+        if (tall[i] < 0) {
+            negative += 1;
+        }
+        if (tall[i] % 2 == 0) {
+            sumPartall += tall[i];
+        }
+    }
+    var snitt = (sum / tall.length).toFixed(2);
+    
+    // Skriver ut resultatene til nettsiden
+    document.getElementById("resultat").innerHTML = 
+        "<br>Sum: " + sum + 
+        "<br>Negative tall: " + negative + 
+        "<br>Gjennomsnitt: " + snitt + 
+        "<br>Laveste tall: " + lavest + 
+        "<br>Sum av partall: " + sumPartall;
+}
