@@ -91,7 +91,8 @@ function hentBestilling() {
 
             document.getElementById("output").innerHTML = "<h2>Kvittering</h2><p>Takk for din bestilling!<br><br>Du har bestilt følgende:<br>"
                                                                 + "En " + navn + " pizza til " + prisPizza + ",- inkl/MVA (" + (prisPizza/1.15).toFixed(2) + ",- ekskl/MVA)<br>"
-                                                                + drikke + " drikke til " + prisDrikke + ",- inkl/MVA (" + (prisDrikke/1.15).toFixed(2) + ",- ekskl/MVA)";
+                                                                + drikke + " drikke til " + prisDrikke + ",- inkl/MVA (" + (prisDrikke/1.15).toFixed(2) + ",- ekskl/MVA)"
+                                                                + "Din totalpris: " + prisTotal + ",- inkl/MVA (" + (prisTotal/1.15).toFixed(2) + ",- ekskl/MVA)";
         } else {
             document.getElementById("output").innerHTML = "Antall drikke må være være et positivt tall!";
         }
