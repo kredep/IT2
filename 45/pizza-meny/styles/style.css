@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+body {
+    margin: 0;
+    background-color: darkblue;
+    text-align: center;
+    font-family: 'Montserrat', serif;
+}
+ul {
+    padding-left: 25px;
+    text-align: left;
+}
+select, input[type='button'] {
+    border: 2px solid black;
+    background-color: #F4D00C;
+    outline: 0;
+    font-size: 18px;
+    font-family: 'Montserrat', serif;
+    padding: 5px;
+    width: 150px;
+    height: 40px;
+    transition: 0.25s;
+}
+input[type='button']:hover {
+    background-color: #F2635F;
+}
+input[type='text'] {
+    border: 2px solid black;
+    background-color: #F4D00C;
+    outline: 0;
+    font-size: 18px;
+    font-family: 'Montserrat', serif;
+    padding: 5px;
+    width: 130px;
+    height: 30px;
+}
+.grid-container {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-areas:
+    'header header'
+    'menu menu'
+    'input output';
+    grid-template-columns: 34% 66%;
+    grid-template-rows: 15% 42.5% 42.5%;
+    min-height: 100vh;
+}
+.grid-item {
+    padding: 40px;
+    background-color: #F2635F;
+}
+.menu-item {
+    color: rgb(50,50,50);
+    padding: 0 20px;
+    border-right: 2px solid black;
+    display: inline-table;
+    height: 100%;
+    width: 140px;
+}
+#header {
+    grid-area: header;
+    padding-top: 15px;
+}
+#menu {
+    grid-area: menu;
+    background-color: #F4D00C;
+    padding: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+#input {
+    grid-area: input;
+    border-right: 1px solid black;
+    font-size: 20px;
+}
+#output {
+    grid-area: output;
+    border-left: 1px solid black;
+    font-size: 20px;
+}
