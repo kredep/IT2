@@ -131,11 +131,12 @@ async function loadTree() {
                 name.classList.add('name')
                 //add a link
                     name.addEventListener('click', e => {
+                        var path = path = e.path || (e.composedPath && e.composedPath())
                         if (e.target.previousSibling.classList.contains('glyphicon-file')) {
                             window.open(baseURL.page + e.target.dataset.path)
                         } else if (e.target.previousSibling.classList.contains('folder')) {
                             if (e.target.previousSibling.classList.contains('closed')) {
-                                e.path[1].classList.remove('closed')
+                                path[1].classList.remove('closed')
                                 e.target.previousSibling.classList.remove('closed')
                                 e.target.previousSibling.classList.add('open')
 
@@ -145,7 +146,7 @@ async function loadTree() {
                                 //close the folder
                             } else if (e.target.previousSibling.classList.contains('open')) {
                                 e.target.previousSibling.classList.remove('open')
-                                e.path[1].classList.add('closed')
+                                path[1].classList.add('closed')
                                 e.target.previousSibling.classList.add('closed')
 
                                 e.target.previousSibling.classList.add('glyphicon-folder-close')
