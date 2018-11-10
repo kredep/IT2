@@ -46,14 +46,6 @@ var pizzaer = [
         "Vann",
         "Ost",
         "Tomatsaus"
-    ]},
-    {navn:"Allergiker",pris:159,rating:1,ingredienser:[
-        "Glutenfritt mel",
-        "Gjær",
-        "Egg",
-        "Vann",
-        "Laktosefri ost",
-        "Tomatsaus"
     ]}
 ];
 var drikkePris = 29;
