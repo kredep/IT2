@@ -1,9 +1,19 @@
 window.onload = startUp;
 
-var score = 0;
-var currentQuestion = 0;
-var sequence = [];
-var answerChecked = false;
+// Deklarerer variabler
+var score = 0; // Holder styr på spillerens score
+var currentQuestion = 0; // Holder styr på indexen til nåværende spørsmål
+var sequence = []; // Array med indexer til spørsmålene, brukes til å få en tilfeldig rekkefølge på spørsmålene
+var answerChecked = false; // Variabel som holder styr på om spilleren har sjekket om svaret er riktig
+/**
+ * Spørsmålsarray
+ * type: hva slags spørsmål: text, audio, image
+ * inputType: hva slags type input man vil ha fra brukeren: radio, text
+ * src: kilde til eventuelle bilder eller lyd
+ * question: selve spørsmålet
+ * alternatives: array med svaralternativer
+ * correct: riktig svar (må stemme med et av alternativene i alternatives-arrayen dersom dette brukes)
+ */
 var questions = [
     {
         type: "text",
@@ -65,23 +75,29 @@ var questions = [
 ];
 
 function startUp() {
+    // Lytter til "neste-spørsmål"-knappen
     document.getElementById("nextQuestion").onclick = nextQuestion;
+    // Lager sequence arrayen og bruker shuffle funksjonen for tilfeldig rekkefølge
     for (let i=0;i<questions.length;i++) {
         sequence.push(i);
     }
     sequence = shuffle(sequence);
+    // Skriver ut spørsmål til nettsiden med updateQuestion.
     updateQuestion();
 }
 
 function updateQuestion() {
+    // Henter variabler fra question-arrayen
     var index = sequence[currentQuestion];
     var question = questions[index]["question"];
     var type = questions[index]["type"];
     var inputType = questions[index]["inputType"];
 
+    // Henter elementer fra nettsiden og setter spørsmål
     var questionContainer = document.getElementById("question");
     var multimediaContainer = document.getElementById("multimedia");
     questionContainer.innerHTML = "Spørsmål " + (currentQuestion+1) + " av " + questions.length + ":<br>" + question;
+    // Finner type spørsmål
     if (type == "text") {
         multimediaContainer.innerHTML = "";
     } else if (type == "image") {
@@ -93,10 +109,12 @@ function updateQuestion() {
         document.getElementById("audio").volume = 0.25;
     }
 
+    // Lager knappen for å sjekke svar
     document.getElementById("answer").innerHTML = "";
     document.getElementById("result").innerHTML = '<input type="button" value="Sjekk svar" id="submitAnswer">';
     document.getElementById("submitAnswer").onclick = checkAnswer;
 
+    // Finner type input fra brukeren og lager tekstfelt eller alternativer
     if (inputType == "radio") {
         var randomziedAlternatives = shuffle(questions[index]["alternatives"]);
         for (let i=0;i<randomziedAlternatives.length;i++) {
@@ -108,18 +126,24 @@ function updateQuestion() {
 }
 
 function checkAnswer() {
+    /**
+     * Funksjon som sjekker om svaret er riktig
+     */
     answerChecked = true;
 
+    // Henter variabler fra questions-arrayen
     var index = sequence[currentQuestion];
     var type = questions[index]["inputType"];
     var correntAnswer = questions[index]["correct"];
     
+    // Finner type input fra brukeren
     if (type == "radio") {
         var answer = document.querySelector('input[name="answer"]:checked').value;
     } else if (type == "text") {
         var answer = document.getElementById("userAnswer").value;
     }
 
+    // Sjekker om svaret er riktig
     if (answer.toLowerCase() == correntAnswer.toLowerCase()) {
         document.getElementById("result").innerHTML = "Riktig svar!";
         score += 1;
@@ -129,22 +153,29 @@ function checkAnswer() {
 }
 
 function nextQuestion() {
+    // Sjekker om brukeren har "avgitt" svaret ved å sjekke om det er riktig
+    // Hvis ikke, gjør vi det før det byttes spørsmål (brukeren vil ikke merke noe)
     if (answerChecked == false) {
         checkAnswer();
     }
     answerChecked = false;
+    // Sjekker om brukeren har svart på alle spørsmål
     if (currentQuestion == questions.length-1) {
         // quiz finished, show results
         document.getElementById("nextQuestion").value = "FINISH";
         document.getElementById("container").classList.remove("grid-container");
         document.getElementById("container").innerHTML = '<h1 style="margin-top: 30vh;">Du klarte ' + score + " av " + questions.length + " spørsmål!</h1>";
     } else {
+        // Bytter til neste spørsmål
         currentQuestion += 1;
         updateQuestion();
     }
 }
 
 function shuffle(a) {
+    /**
+     * Funksjon som gir elementene i en array en tilfeldig plassering
+     */
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
