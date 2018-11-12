@@ -70,4 +70,5 @@ input[type='button'], input[type=''] {
 input[type='button']:hover {
     background-color: white;
     color: rgb(50,50,50);
+    cursor: pointer;
 }
