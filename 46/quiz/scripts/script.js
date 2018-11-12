@@ -181,7 +181,7 @@ function nextQuestion() {
         var container = document.getElementById("container");
         container.classList.remove("grid-container");
         container.innerHTML = '<h1 style="margin-top: 30vh;">Du klarte ' + score + " av " + questions.length + " spørsmål!</h1>";
-        container.innerHTML += 'Navn: <input type="text" id="username"><br><p>La være tom om du ikke ønsker å legge til en highscore</p><br><input type="button" value="Send" id="submitName">';
+        container.innerHTML += 'Navn: <input type="text" id="username"><br><p>La være tom om du ikke ønsker å legge til en highscore</p><br><input type="button" value="Se Highscores" id="submitName">';
         document.getElementById("submitName").onclick = newHighscore;
     } else {
         // Bytter til neste spørsmål
