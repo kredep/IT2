@@ -9,7 +9,7 @@ var answerChecked = false; // Variabel som holder styr på om spilleren har sjek
  * Spørsmålsarray
  * type: hva slags spørsmål: text, audio, image
  * inputType: hva slags type input man vil ha fra brukeren: radio, text
- * src: kilde til eventuelle bilder eller lyd
+ * src: kilde (path/sti) til eventuelt bilde eller lydklipp
  * question: selve spørsmålet
  * alternatives: array med svaralternativer
  * correct: riktig svar (må stemme med et av alternativene i alternatives-arrayen dersom dette brukes)
@@ -71,6 +71,17 @@ var questions = [
         src: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Donald_Duck.svg/220px-Donald_Duck.svg.png",
         question: "Hva heter figuren til høyre?",
         correct: "Donald Duck"
+    }
+];
+
+var highscores = [
+    {
+        navn: "Peder",
+        score: 4
+    },
+    {
+        navn: "Anonym",
+        score: 2
     }
 ];
 
@@ -138,7 +149,11 @@ function checkAnswer() {
     
     // Finner type input fra brukeren
     if (type == "radio") {
-        var answer = document.querySelector('input[name="answer"]:checked').value;
+        if (document.querySelector('input[name="answer"]:checked') != null) {
+            var answer = document.querySelector('input[name="answer"]:checked').value;
+        } else {
+            var answer = "";
+        }
     } else if (type == "text") {
         var answer = document.getElementById("userAnswer").value;
     }
@@ -161,15 +176,45 @@ function nextQuestion() {
     answerChecked = false;
     // Sjekker om brukeren har svart på alle spørsmål
     if (currentQuestion == questions.length-1) {
-        // quiz finished, show results
-        document.getElementById("nextQuestion").value = "FINISH";
-        document.getElementById("container").classList.remove("grid-container");
-        document.getElementById("container").innerHTML = '<h1 style="margin-top: 30vh;">Du klarte ' + score + " av " + questions.length + " spørsmål!</h1>";
+        // Quizen er ferdig, viser stats og lar brukeren skrive inn navn for topplista
+        document.getElementById("nextQuestion").value = "Ferdig";
+        var container = document.getElementById("container");
+        container.classList.remove("grid-container");
+        container.innerHTML = '<h1 style="margin-top: 30vh;">Du klarte ' + score + " av " + questions.length + " spørsmål!</h1>";
+        container.innerHTML += 'Navn: <input type="text" id="username"><br><p>La være tom om du ikke ønsker å legge til en highscore</p><br><input type="button" value="Send" id="submitName">';
+        document.getElementById("submitName").onclick = newHighscore;
     } else {
         // Bytter til neste spørsmål
         currentQuestion += 1;
         updateQuestion();
     }
+}
+
+function newHighscore() {
+    var name = document.getElementById("username").value;
+    if (name != "") {
+        highscores.push({
+            navn: name,
+            score: score
+        });
+    }
+    printHighscores();
+}
+
+
+function printHighscores() {
+    highscores.sort(
+        function (a,b) {
+            return b.score - a.score;
+        }
+    );
+    var container = document.getElementById("container");
+    container.innerHTML = "<h1>Highscores</h1>"
+    for (let i=0;i<highscores.length;i++) {
+        console.log(highscores[i]);
+        container.innerHTML += highscores[i]["navn"] + ": " + highscores[i]["score"] + " poeng<br>";
+    }
+    container.innerHTML += '<br><br><input type="button" value="Start på nytt" onclick="location.reload()">';
 }
 
 function shuffle(a) {
