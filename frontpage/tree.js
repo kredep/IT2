@@ -65,6 +65,13 @@ function parseTree(rawTree) {
 
 /**@description loads the tree to the DOM */
 async function loadTree() {
+    // Browser check
+    var isFirefox = typeof InstallTrigger !== 'undefined';
+    var isChrome = !!window.chrome && !!window.chrome.webstore;
+    if (!isFirefox && !isChrome) {
+        document.getElementById("loading").innerHTML = "Vennligst benytt Chrome eller Firefox";
+        return;
+    }
     var tree = parseTree(await getRawTree())
     return new Promise(resolve => {
         var div = document.getElementById('explorer')
