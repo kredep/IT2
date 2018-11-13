@@ -1,9 +1,19 @@
 window.onload = startUp;
 
-var score = 0;
-var currentQuestion = 0;
-var sequence = [];
-var answerChecked = false;
+// Deklarerer variabler
+var score = 0; // Holder styr på spillerens score
+var currentQuestion = 0; // Holder styr på indexen til nåværende spørsmål
+var sequence = []; // Array med indexer til spørsmålene, brukes til å få en tilfeldig rekkefølge på spørsmålene
+var answerChecked = false; // Variabel som holder styr på om spilleren har sjekket om svaret er riktig
+/**
+ * Spørsmålsarray
+ * type: hva slags spørsmål: text, audio, image
+ * inputType: hva slags type input man vil ha fra brukeren: radio, text
+ * src: kilde (path/sti) til eventuelt bilde eller lydklipp
+ * question: selve spørsmålet
+ * alternatives: array med svaralternativer
+ * correct: riktig svar (må stemme med et av alternativene i alternatives-arrayen dersom dette brukes)
+ */
 var questions = [
     {
         type: "text",
@@ -61,29 +71,85 @@ var questions = [
         src: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Donald_Duck.svg/220px-Donald_Duck.svg.png",
         question: "Hva heter figuren til høyre?",
         correct: "Donald Duck"
+    },
+    {
+        type: "text",
+        inputType: "radio",
+        question: "I hvilket år startet første verdenskrig?",
+        alternatives: [
+            "1918",
+            "1908",
+            "1917",
+            "1914"
+        ],
+        correct: "1914"
+    },
+    {
+        type: "image",
+        inputType: "text",
+        src: "http://flags.fmcdn.net/data/flags/w580/ug.png",
+        question: "Til hvilket land tilhører dette flagget?",
+        correct: "Uganda"
+    }
+];
+
+var highscores = [
+    {
+        navn: "Peder",
+        score: 4
+    },
+    {
+        navn: "Anonym",
+        score: 2
+    },
+    {
+        navn: "Bob",
+        score: 0
+    },
+    {
+        navn: "Ola Nordmann",
+        score: 5
+    },
+    {
+        navn: "Random",
+        score: 2
     }
 ];
 
 function startUp() {
+    // Lytter til "neste-spørsmål"-knappen
     document.getElementById("nextQuestion").onclick = nextQuestion;
+    // Lager sequence arrayen og bruker shuffle funksjonen for tilfeldig rekkefølge
     for (let i=0;i<questions.length;i++) {
         sequence.push(i);
     }
     sequence = shuffle(sequence);
+    // Skriver ut spørsmål til nettsiden med updateQuestion.
     updateQuestion();
 }
 
 function updateQuestion() {
+    // Henter variabler fra question-arrayen
     var index = sequence[currentQuestion];
     var question = questions[index]["question"];
     var type = questions[index]["type"];
     var inputType = questions[index]["inputType"];
 
+    // Henter elementer fra nettsiden og setter spørsmål
     var questionContainer = document.getElementById("question");
     var multimediaContainer = document.getElementById("multimedia");
     questionContainer.innerHTML = "Spørsmål " + (currentQuestion+1) + " av " + questions.length + ":<br>" + question;
+    // Finner type spørsmål
+    if (type != "text") {
+        document.getElementById("container").classList.add('grid-container-multimedia');
+        document.getElementById("container").classList.remove('grid-container-no-multimedia');
+        document.getElementById("multimedia").style.display = "block";
+    }
     if (type == "text") {
         multimediaContainer.innerHTML = "";
+        document.getElementById("container").classList.remove('grid-container-multimedia');
+        document.getElementById("container").classList.add('grid-container-no-multimedia');
+        document.getElementById("multimedia").style.display = "none";
     } else if (type == "image") {
         var src = questions[index]["src"];
         multimediaContainer.innerHTML = '<img class="image" src="' + src +'">';
@@ -93,10 +159,12 @@ function updateQuestion() {
         document.getElementById("audio").volume = 0.25;
     }
 
+    // Lager knappen for å sjekke svar
     document.getElementById("answer").innerHTML = "";
     document.getElementById("result").innerHTML = '<input type="button" value="Sjekk svar" id="submitAnswer">';
     document.getElementById("submitAnswer").onclick = checkAnswer;
 
+    // Finner type input fra brukeren og lager tekstfelt eller alternativer
     if (inputType == "radio") {
         var randomziedAlternatives = shuffle(questions[index]["alternatives"]);
         for (let i=0;i<randomziedAlternatives.length;i++) {
@@ -108,18 +176,28 @@ function updateQuestion() {
 }
 
 function checkAnswer() {
+    /**
+     * Funksjon som sjekker om svaret er riktig
+     */
     answerChecked = true;
 
+    // Henter variabler fra questions-arrayen
     var index = sequence[currentQuestion];
     var type = questions[index]["inputType"];
     var correntAnswer = questions[index]["correct"];
     
+    // Finner type input fra brukeren
     if (type == "radio") {
-        var answer = document.querySelector('input[name="answer"]:checked').value;
+        if (document.querySelector('input[name="answer"]:checked') != null) {
+            var answer = document.querySelector('input[name="answer"]:checked').value;
+        } else {
+            var answer = "";
+        }
     } else if (type == "text") {
         var answer = document.getElementById("userAnswer").value;
     }
 
+    // Sjekker om svaret er riktig
     if (answer.toLowerCase() == correntAnswer.toLowerCase()) {
         document.getElementById("result").innerHTML = "Riktig svar!";
         score += 1;
@@ -129,22 +207,67 @@ function checkAnswer() {
 }
 
 function nextQuestion() {
+    // Sjekker om brukeren har "avgitt" svaret ved å sjekke om det er riktig
+    // Hvis ikke, gjør vi det før det byttes spørsmål (brukeren vil ikke merke noe)
     if (answerChecked == false) {
         checkAnswer();
     }
     answerChecked = false;
+    // Sjekker om brukeren har svart på alle spørsmål
     if (currentQuestion == questions.length-1) {
-        // quiz finished, show results
-        document.getElementById("nextQuestion").value = "FINISH";
-        document.getElementById("container").classList.remove("grid-container");
-        document.getElementById("container").innerHTML = '<h1 style="margin-top: 30vh;">Du klarte ' + score + " av " + questions.length + " spørsmål!</h1>";
+        // Quizen er ferdig, viser stats og lar brukeren skrive inn navn for topplista
+        document.getElementById("nextQuestion").value = "Ferdig";
+        var container = document.getElementById("container");
+        container.classList.remove("grid-container-multimedia");
+        container.classList.remove("grid-container-no-multimedia");
+        container.innerHTML = '<h1 style="margin-top: 30vh;">Du klarte ' + score + " av " + questions.length + " spørsmål!</h1>";
+        container.innerHTML += 'Navn: <input type="text" id="username"><br><p>La være tom om du ikke ønsker å legge til en highscore</p><br><input type="button" value="Se Highscores" id="submitName">';
+        document.getElementById("submitName").onclick = newHighscore;
     } else {
+        // Bytter til neste spørsmål
         currentQuestion += 1;
         updateQuestion();
     }
 }
 
+function newHighscore() {
+    var name = document.getElementById("username").value;
+    if (name != "") {
+        highscores.push({
+            navn: name,
+            score: score
+        });
+    }
+    printHighscores();
+}
+
+
+function printHighscores() {
+    highscores.sort(
+        function (a,b) {
+            return b.score - a.score;
+        }
+    );
+    var container = document.getElementById("container");
+    container.innerHTML = "<h1>Highscores</h1>"
+    for (let i=0;i<highscores.length;i++) {
+        if (i==0) {
+            container.innerHTML += '<p style="background-color:green;">' + highscores[i]["navn"] + ": " + highscores[i]["score"] + " poeng</p><br>";
+        } else if (i==1) {
+            container.innerHTML += '<p style="background-color:orange;margin-top:-54px;">' + highscores[i]["navn"] + ": " + highscores[i]["score"] + " poeng</p><br>";
+        } else if (i==2) {
+            container.innerHTML += '<p style="background-color:red;margin-top:-54px;">' + highscores[i]["navn"] + ": " + highscores[i]["score"] + " poeng</p><br>";
+        } else {
+            container.innerHTML += '<p style="background-color:white;color:rgb(50,50,50);margin-top:-54px;">' + highscores[i]["navn"] + ": " + highscores[i]["score"] + " poeng</p><br>";
+        }
+    }
+    container.innerHTML += '<br><br><input type="button" value="Start på nytt" onclick="location.reload()">';
+}
+
 function shuffle(a) {
+    /**
+     * Funksjon som gir elementene i en array en tilfeldig plassering
+     */
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
