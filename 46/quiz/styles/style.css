@@ -11,14 +11,30 @@ body {
 input[type='radio'] {
     margin-top: 20px;
 }
-.grid-container {
+input[type='text'] {
+    padding: 5px;
+    font-size: 20px;
+    font-family: 'Montserrat', serif;
+}
+.grid-container-multimedia {
     display: grid;
     grid-gap: 0px;
     grid-template-areas:
     'question question multimedia'
-    'answer answer answer'
+    'answer answer multimedia'
     'result result next';
     grid-template-columns: 33% 34% 33%;
+    grid-template-rows: 33% 34% 33%;
+    min-height: 100vh;
+}
+.grid-container-no-multimedia {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-areas:
+    'question question'
+    'answer answer'
+    'result next';
+    grid-template-columns: 50% 50%;
     grid-template-rows: 33% 34% 33%;
     min-height: 100vh;
 }
@@ -29,24 +45,40 @@ input[type='radio'] {
 
 #question {
     grid-area: question;
-    border-right: 2px solid white;
+    background-color: rgb(130,130,130);
 }
 #multimedia {
     grid-area: multimedia;
 }
 #answer {
     grid-area: answer;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
+    background-color: rgb(110,110,110);
 }
 #result {
     grid-area: result;
-    border-left: 2px solid white;
-    border-right: 2px solid white;
+    background-color: rgb(90,90,90);
 }
 #next {
     grid-area: next;
+    background-color: rgb(70,70,70);
 }
 .image {
-    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+input[type='button'], input[type=''] {
+    outline: 0;
+    border: 2px solid white;
+    color: white;
+    background-color: rgb(25,25,25);
+    font-size: 26px;
+    padding: 15px;
+    transition: 0.25s;
+}
+
+input[type='button']:hover {
+    background-color: white;
+    color: rgb(50,50,50);
+    cursor: pointer;
 }
