@@ -11,17 +11,12 @@ body {
 input[type='radio'] {
     margin-top: 20px;
 }
-input[type='text'] {
-    padding: 5px;
-    font-size: 20px;
-    font-family: 'Montserrat', serif;
-}
 .grid-container {
     display: grid;
     grid-gap: 0px;
     grid-template-areas:
     'question question multimedia'
-    'answer answer multimedia'
+    'answer answer answer'
     'result result next';
     grid-template-columns: 33% 34% 33%;
     grid-template-rows: 33% 34% 33%;
@@ -34,11 +29,10 @@ input[type='text'] {
 
 #question {
     grid-area: question;
+    border-right: 2px solid white;
 }
 #multimedia {
     grid-area: multimedia;
-    border-left: 2px solid white;
-    border-bottom: 2px solid white;
 }
 #answer {
     grid-area: answer;
@@ -48,27 +42,11 @@ input[type='text'] {
 #result {
     grid-area: result;
     border-left: 2px solid white;
+    border-right: 2px solid white;
 }
 #next {
     grid-area: next;
-    border-left: 2px solid white;
 }
 .image {
     height: 100%;
-}
-
-input[type='button'], input[type=''] {
-    outline: 0;
-    border: 2px solid white;
-    color: white;
-    background-color: rgb(25,25,25);
-    font-size: 26px;
-    padding: 15px;
-    transition: 0.25s;
-}
-
-input[type='button']:hover {
-    background-color: white;
-    color: rgb(50,50,50);
-    cursor: pointer;
 }
