@@ -16,7 +16,7 @@ function startUp() {
 function wallpaperChange() {
     for (let i=0;i<urls.length;i++) {
         if (timer == i) {
-            document.getElementById("bdy").style.backgroundImage = 'url(' + url[i] + ')';
+            document.getElementById("bdy").style.backgroundImage = 'url(' + urls[i] + ')';
         } else if (timer == urls.length) {
             timer = 0;
         }
