@@ -371,6 +371,10 @@ h1 {
     font-size: 18px;
     font-family: 'Montserrat', serif;
 }
+#bdy {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 @media (max-width: 800px) {
     #tree {
         margin: 0;
