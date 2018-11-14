@@ -14,13 +14,13 @@ function startUp() {
 }
 
 function wallpaperChange() {
-    for (var i=0;i<urls.length;i++) {
+    for (let i=0;i<urls.length;i++) {
         if (timer == i) {
             document.getElementById("bdy").style.backgroundImage = 'url(' + urls[i] + ')';
+            if (i == timer.length-1) {
+                timer = -1;
+            }
         }
     }
-    timer += 1;
-    if (i == timer.length-1) {
-        timer = 0;
-    }
+    timer++;
 }
