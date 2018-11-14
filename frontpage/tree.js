@@ -1,13 +1,5 @@
 window.onload = loadTree;
 
-var timer = 0;
-var intervalTime = 10 * 1000; // ms
-
-var urls = [
-    "https://i.imgur.com/rIgX9wA.jpg",
-    "https://i.imgur.com/Ppzf07Z.jpg"
-];
-
 var baseURL = {
     api: 'https://api.github.com/repos/kredep/IT2/',
     raw: 'https://raw.githubusercontent.com/kredep/IT2/master/',
@@ -189,6 +181,7 @@ async function loadTree() {
         resolve()
         var element = document.getElementById('loading')
         element.parentNode.removeChild(element)
+        console.log("sup")
     })
 }
 /**@description gets the text content of a file given a path */
@@ -201,16 +194,4 @@ async function getTextFile(path) {
         }
         xhr.send()
     })
-}
-
-function wallpaperChange() {
-    for (let i=0;i<urls.length;i++) {
-        if (timer == i) {
-            document.getElementById("bdy").style.backgroundImage = 'url(' + urls[i] + ')';
-            if (i == timer.length-1) {
-                timer = -1;
-            }
-        }
-    }
-    timer++;
 }
