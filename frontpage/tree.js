@@ -1,19 +1,24 @@
-window.onload = startUp;
+window.onload = loadTree;
 
-function startUp() {
-    loadTree();
-}
+var timer = 0;
+var intervalTime = 10 * 1000; // ms
+
+var urls = [
+    "https://i.imgur.com/rIgX9wA.jpg",
+    "https://i.imgur.com/Ppzf07Z.jpg"
+];
 
 var baseURL = {
     api: 'https://api.github.com/repos/kredep/IT2/',
     raw: 'https://raw.githubusercontent.com/kredep/IT2/master/',
     page: 'https://kredep.github.io/IT2/',
-    token: 'c166d1527324b319f9ba3b3a1bca7344682550ec'
+    token: 'c166d1527324b319f9ba3b3a1bca7344682550ec' // Personal access token for higher rate-limit using GitHub API, public read only
 }
 
 async function getSha() {
     return new Promise(resolve => {
         var xhr = new XMLHttpRequest()
+        console.log(baseURL.api + "branches?access_token=" + baseURL.token)
         xhr.open('GET', baseURL.api + 'branches?access_token=' + baseURL.token, true)
         xhr.onload = function () {
             try {
@@ -34,7 +39,7 @@ async function getRawTree() {
     var tree = await getSha()
     return new Promise(resolve => {
         var xhr = new XMLHttpRequest()
-        xhr.open('GET', baseURL.api + 'git/trees/' + tree + '?recursive=1&access_token=' + baseURL.token, true)
+        xhr.open('GET', baseURL.api + 'git/trees/' + tree + '?recursive=1' + "&access_token=" + baseURL.token, true)
         xhr.onload = function () {
             resolve(JSON.parse(this.response))
         }
@@ -65,7 +70,6 @@ function parseTree(rawTree) {
 
 /**@description loads the tree to the DOM */
 async function loadTree() {
-    // Browser check
     var isFirefox = typeof InstallTrigger !== 'undefined';
     var isChrome = !!window.chrome && !!window.chrome.webstore;
     if (!isFirefox && !isChrome) {
@@ -74,7 +78,7 @@ async function loadTree() {
     }
     var tree = parseTree(await getRawTree())
     return new Promise(resolve => {
-        var div = document.getElementById('explorer')
+        var div = document.getElementById('tree')
         /**@param item
          * @param {HTMLElement} parent */
         function loadContent(item, parent, indent) {
@@ -138,7 +142,7 @@ async function loadTree() {
                 name.classList.add('name')
                 //add a link
                     name.addEventListener('click', e => {
-                        var path = path = e.path || (e.composedPath && e.composedPath())
+                        var path = event.path || (event.composedPath && event.composedPath());
                         if (e.target.previousSibling.classList.contains('glyphicon-file')) {
                             window.open(baseURL.page + e.target.dataset.path)
                         } else if (e.target.previousSibling.classList.contains('folder')) {
@@ -185,6 +189,9 @@ async function loadTree() {
         resolve()
         var element = document.getElementById('loading')
         element.parentNode.removeChild(element)
+        console.log("Wallpapers...");
+        wallpaperChange();
+        setInterval(wallpaperChange, intervalTime);
     })
 }
 /**@description gets the text content of a file given a path */
@@ -197,4 +204,16 @@ async function getTextFile(path) {
         }
         xhr.send()
     })
+}
+
+function wallpaperChange() {
+    for (let i=0;i<urls.length;i++) {
+        if (timer == i) {
+            document.getElementById("bdy").style.backgroundImage = 'url(' + urls[i] + ')';
+            if (i == timer.length-1) {
+                timer = -1;
+            }
+        }
+    }
+    timer++;
 }
