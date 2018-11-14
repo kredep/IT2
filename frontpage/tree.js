@@ -189,9 +189,6 @@ async function loadTree() {
         resolve()
         var element = document.getElementById('loading')
         element.parentNode.removeChild(element)
-        console.log("Wallpapers...")
-        wallpaperChange()
-        setInterval(wallpaperChange, intervalTime)
     })
 }
 /**@description gets the text content of a file given a path */
