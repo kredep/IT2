@@ -10,7 +10,7 @@ var urls = [
 
 function startUp() {
     wallpaperChange();
-    setInterval(wallpaperChange, intervaltime);
+    setInterval(wallpaperChange, intervalTime);
 }
 
 function wallpaperChange() {
