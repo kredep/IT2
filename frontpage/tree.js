@@ -203,10 +203,11 @@ async function getTextFile(path) {
 }
 
 function wallpaperChange() {
+    console.log(timer);
     for (let i=0;i<urls.length;i++) {
         if (timer == i) {
             document.getElementById("bdy").style.backgroundImage = 'url(' + urls[i] + ')';
-            if (i == timer.length-1) {
+            if (i == urls.length-1) {
                 timer = -1;
             }
         }
