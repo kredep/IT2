@@ -9,7 +9,7 @@ var intervalTime = 10 * 1000; // ms
 
 var urls = [
     "https://i.imgur.com/rIgX9wA.jpg",
-    "https://i.imgur.com/Ppzf07Z.jpg"
+    "https://i.imgur.com/6lqtcB3.jpg"
 ];
 
 var baseURL = {
