@@ -377,6 +377,7 @@ h1 {
     background-size: cover;
     background-attachment: fixed;
     transition: 1s;
+    transition-delay: 2s;
 }
 @media (max-width: 800px) {
     #tree {
