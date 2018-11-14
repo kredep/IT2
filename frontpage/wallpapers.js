@@ -5,7 +5,7 @@ var intervalTime = 10 * 1000; // ms
 
 var urls = [
     "https://i.imgur.com/rIgX9wA.jpg",
-    "http://bevilacqua.me/images/images-beautiful-scenery-impremedia-net__aHR0cHM6Ly9qb29pbm4uY29tL2ltYWdlcy9iZWF1dGlmdWwtc2NlbmVyeS02LmpwZw==.jpg"
+    "https://i.imgur.com/Ppzf07Z.jpg"
 ];
 
 function startUp() {
