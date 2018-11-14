@@ -185,7 +185,6 @@ async function loadTree() {
         resolve()
         var element = document.getElementById('loading')
         element.parentNode.removeChild(element)
-        console.log("Starting wallpaper shuffles")
         wallpaperChange()
         setInterval(wallpaperChange, intervalTime)
     })
@@ -203,7 +202,6 @@ async function getTextFile(path) {
 }
 
 function wallpaperChange() {
-    console.log(timer);
     for (let i=0;i<urls.length;i++) {
         if (timer == i) {
             document.getElementById("bdy").style.backgroundImage = 'url(' + urls[i] + ')';
