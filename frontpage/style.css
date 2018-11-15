@@ -4,7 +4,6 @@ body {
     margin: 0;
     font-family: 'Oswald', serif;
     padding-top: 0;
-    background-image: url('https://i.imgur.com/rIgX9wA.jpg');
 }
 h1 {
     font-weight: 400;
@@ -382,6 +381,7 @@ h1 {
     transition-delay: 2s;
     -webkit-transition-delay: 2s;
     -moz-transition-delay: 2s;
+    background-color: rgb(50,50,50);
 }
 @media (max-width: 800px) {
     #tree {
