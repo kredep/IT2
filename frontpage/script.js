@@ -13,6 +13,7 @@ var urls = [
     "https://i.imgur.com/mOPyaDA.jpg"
 ];
 var timer = random(0, (urls.length-1));
+console.log(timer);
 
 var baseURL = {
     api: 'https://api.github.com/repos/kredep/IT2/',
