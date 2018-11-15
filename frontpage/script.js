@@ -12,8 +12,8 @@ var urls = [
     "https://i.imgur.com/pWNgnmO.jpg",
     "https://i.imgur.com/mOPyaDA.jpg"
 ];
-var timer = random(0, (urls.length-1));
-console.log(timer);
+urls = shuffle(urls);
+var timer = 0;
 
 var baseURL = {
     api: 'https://api.github.com/repos/kredep/IT2/',
@@ -22,8 +22,15 @@ var baseURL = {
     token: 'c166d1527324b319f9ba3b3a1bca7344682550ec'
 }
 
-function random(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
 }
 
 async function getSha() {
