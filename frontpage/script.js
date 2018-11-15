@@ -4,9 +4,7 @@ function startUp() {
     loadTree();
 }
 
-var timer = 0;
 var intervalTime = 10 * 1000; // ms
-
 var urls = [
     "https://i.imgur.com/rIgX9wA.jpg",
     "https://i.imgur.com/6lqtcB3.jpg",
@@ -14,12 +12,17 @@ var urls = [
     "https://i.imgur.com/pWNgnmO.jpg",
     "https://i.imgur.com/mOPyaDA.jpg"
 ];
+var timer = random(0, (urls.length-1));
 
 var baseURL = {
     api: 'https://api.github.com/repos/kredep/IT2/',
     raw: 'https://raw.githubusercontent.com/kredep/IT2/master/',
     page: 'https://kredep.github.io/IT2/',
     token: 'c166d1527324b319f9ba3b3a1bca7344682550ec'
+}
+
+function random(min, max) {
+    return Math.random() * (max - min) + min;
 }
 
 async function getSha() {
