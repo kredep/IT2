@@ -22,7 +22,7 @@ var baseURL = {
 }
 
 function random(min, max) {
-    return Math.random() * (max - min) + min;
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
 async function getSha() {
