@@ -2,6 +2,7 @@ window.onload = startUp;
 
 function startUp() {
     loadTree();
+    document.getElementById("bdy").style.backgroundImage = 'url(' + urls[0] + ')';
 }
 
 var intervalTime = 10 * 1000; // ms
@@ -13,7 +14,6 @@ var urls = [
     "https://i.imgur.com/mOPyaDA.jpg"
 ];
 urls = shuffle(urls);
-document.getElementById("bdy").style.backgroundImage = 'url(' + urls[0] + ')';
 var timer = 0;
 
 var baseURL = {
