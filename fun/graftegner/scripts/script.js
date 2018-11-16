@@ -85,24 +85,16 @@ function update() {
     ctx.fillRect(0,0,dimentions[0],dimentions[1]);
     ctx.stroke();
 
-    // Draw axis
-    ctx.beginPath();
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = 'rgb(0,0,0)';
     var origo = [
         centerX + centerCoord[0]*(tilesize+lw),
         centerY + centerCoord[1]*(-tilesize-lw)
     ];
-    ctx.moveTo(origo[0], 0);
-    ctx.lineTo(origo[0],dimentions[1]);
-    ctx.moveTo(0, origo[1]);
-    ctx.lineTo(dimentions[0], origo[1]);
-    ctx.stroke();
 
     // Draw lines
     ctx.lineWidth = lw;
     var posX = origo[0];
     var posY = origo[1];
+    ctx.strokeStyle = 'rgb(125,125,125)';
     while (posX < dimentions[0]) {
         ctx.beginPath();
         ctx.moveTo(posX,0);
@@ -133,6 +125,15 @@ function update() {
         ctx.stroke();
         posY -= tilesize;
     }
+    // Draw axis
+    ctx.beginPath();
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = 'rgb(0,0,0)';
+    ctx.moveTo(origo[0], 0);
+    ctx.lineTo(origo[0],dimentions[1]);
+    ctx.moveTo(0, origo[1]);
+    ctx.lineTo(dimentions[0], origo[1]);
+    ctx.stroke();
 
     // Looping for every pixel
     var interval = tilesize+lw;
