@@ -11,9 +11,9 @@ var centerX;
 var centerY;
 var params = {
     "a": 1,
-    "b": 1,
-    "c": 1,
-    "d": 0
+    "b": 3,
+    "c": 0.2,
+    "d": -2
 };
 var grade = 3;
 
@@ -33,6 +33,7 @@ function startUp() {
     document.getElementById("functiongrade").onchange = changeInput;
     document.getElementById("plot").onclick = plot;
 }
+
 function changeInput() {
     var grade = Number(document.getElementById("functiongrade").value);
     if (grade == 1) {
@@ -137,8 +138,8 @@ function update() {
 
     // Looping for every pixel
     var interval = tilesize+lw;
-    var start = origo[0] - dimentions[0];
-    var end = dimentions[0] - origo[0];
+    var start = centerX - dimentions[0] - (centerCoord[0]*(tilesize+lw));
+    var end = dimentions[0] - centerX - (centerCoord[0]*(tilesize+lw));
     var previousPoint = [];
     for (var i=start;i<end;i++) {
         var x = i/interval;
