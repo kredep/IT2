@@ -9,6 +9,7 @@ var lw = 2; // pixels
 var centerCoord = [0,0]; // coordinates
 var centerX;
 var centerY;
+var zoom = 0;
 var params = {
     "a": 1,
     "b": 3,
@@ -16,6 +17,7 @@ var params = {
     "d": -2
 };
 var grade = 3;
+var graphColor = "#FF0000";
 
 function startUp() {
     dimentions[0] = document.getElementById("graphics").clientWidth;
@@ -32,8 +34,13 @@ function startUp() {
     document.getElementById("tiledec").onclick = tiledec;
     document.getElementById("functiongrade").onchange = changeInput;
     document.getElementById("plot").onclick = plot;
+    document.getElementById("color").onchange = color;
 }
 
+function color() {
+    graphColor = document.getElementById("color").value;
+    update();
+}
 function changeInput() {
     var grade = Number(document.getElementById("functiongrade").value);
     if (grade == 1) {
@@ -69,11 +76,15 @@ function right() {
     update();
 }
 function tiledec() {
-    tilesize--;
+    if (zoom > -44) {
+        tilesize--;
+        zoom--;
+    }
     update();
 }
 function tileinc() {
     tilesize++;
+    zoom++;
     update();
 }
 function update() {
@@ -95,7 +106,7 @@ function update() {
     ctx.lineWidth = lw;
     var posX = origo[0];
     var posY = origo[1];
-    ctx.strokeStyle = 'rgb(125,125,125)';
+    ctx.strokeStyle = 'rgba(0,0,0,0.1)';
     while (posX < dimentions[0]) {
         ctx.beginPath();
         ctx.moveTo(posX,0);
@@ -136,7 +147,60 @@ function update() {
     ctx.lineTo(dimentions[0], origo[1]);
     ctx.stroke();
 
-    // Looping for every pixel
+    // Draw axis numbers
+    if (zoom > -30 ) {
+        var inc = 1;
+    } else {
+        var inc = ((-Math.ceil(zoom/10)*10)/10 - 1);
+    }
+    var pX = origo[0];
+    var current = 0;
+    ctx.fillStyle = 'rgb(0,0,0)';
+    ctx.font = 'bold 16px Arial';
+    while (pX < dimentions[0]) {
+        if (current != 0) {
+            if (current > 9) {
+                ctx.fillText(current, pX-7 , origo[1]-4);
+            } else {
+                ctx.fillText(current, pX-9 , origo[1]-4);
+            }
+        }
+        current+=inc;
+        pX += (tilesize*inc);
+    }
+    pX = origo[0];
+    current = 0;
+    while (pX > 0) {
+        if (current != 0) {
+            if (current < -9) {
+                ctx.fillText(current, pX-13 , origo[1]-4);
+            } else {
+                ctx.fillText(current, pX-9 , origo[1]-4);
+            }
+        }
+        current-=inc;
+        pX -= (tilesize*inc);
+    }
+    var pY = origo[1];
+    current = 0;
+    while (pY < dimentions[1]) {
+        if (current != 0) {
+            ctx.fillText(current, origo[0]+5, pY+5);
+        }
+        current+=inc;
+        pY += (tilesize*inc);
+    }
+    pY = origo[1];
+    current = 0;
+    while (pY > 0) {
+        if (current != 0) {
+            ctx.fillText(current, origo[0]+5, pY+3);
+        }
+        current-=inc;
+        pY -= (tilesize*inc);
+    }
+
+    // Draw graph, looping for every pixel
     var interval = tilesize+lw;
     var start = centerX - dimentions[0] - (centerCoord[0]*(tilesize+lw));
     var end = dimentions[0] - centerX - (centerCoord[0]*(tilesize+lw));
@@ -158,12 +222,12 @@ function update() {
             ctx.lineTo(pixelWidth,pixelHeight);
         }
         ctx.lineWidth = lw*2;
-        ctx.strokeStyle = 'rgb(0,0,255)';
+        ctx.strokeStyle = graphColor;
         ctx.closePath();
         ctx.stroke();
         if (i % tilesize == 0) {
             ctx.beginPath();
-            ctx.fillStyle = 'rgb(0,0,255)';
+            ctx.fillStyle = graphColor;
             ctx.arc(pixelWidth,pixelHeight,lw*3,0,2*Math.PI);
             ctx.fill();
         }
