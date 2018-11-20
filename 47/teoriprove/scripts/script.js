@@ -45,7 +45,7 @@ var questions = [
     },
     {
         question: "Hvor mange meter over havet ligger toppen av Mount Everest?",
-        multimedia: '<img src="https://cdn.britannica.com/s:500x350/17/83817-004-C5DB59F8.jpg">',
+        multimedia: '<img src="https://cdn.britannica.com/s:500x350/17/83817-004-C5DB59F8.jpg" width="300">',
         alternatives: [
             "8848 meter",
             "8484 meter",
