@@ -20,8 +20,8 @@ input[type='text'] {
     display: grid;
     grid-gap: 0px;
     grid-template-areas:
-    'question question multimedia'
-    'answer answer multimedia'
+    'question multimedia multimedia'
+    'answer multimedia multimedia'
     'next next next';
     grid-template-columns: 33% 34% 33%;
     grid-template-rows: 40% 40% 20%;
