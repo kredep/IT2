@@ -16,6 +16,10 @@ input[type='text'] {
     font-size: 20px;
     font-family: 'Montserrat', serif;
 }
+input[type='radio'] {
+    width: 18px;
+    height: 18px;
+}
 .grid-container {
     display: grid;
     grid-gap: 0px;
