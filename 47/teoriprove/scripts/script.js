@@ -12,7 +12,7 @@ var answers = [];           // array for å holde styr på riktige og gale svar.
 var questions = [
     {
         question: "Hvilket land er det mørkerøde?",
-        multimedia: '<img src="https://www.drivingdirectionsandmaps.com/wp-content/uploads/country-locator/mg-locator-map.gif" width="300">',
+        multimedia: '<img src="https://www.drivingdirectionsandmaps.com/wp-content/uploads/country-locator/mg-locator-map.gif" width="500">',
         alternatives: [
             "Kina",
             "Kasakhstan",
@@ -23,7 +23,7 @@ var questions = [
     },
     {
         question: "Hvilket land sitt flagg er dette?",
-        multimedia: '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png" width="300">',
+        multimedia: '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png" width="500">',
         alternatives: [
             "Norge",
             "England",
@@ -34,7 +34,7 @@ var questions = [
     },
     {
         question: "Hvem er dette?",
-        multimedia: '<img src="http://onarki.no/blogg/wp-content/uploads/2016/05/HaraldEia.jpeg">',
+        multimedia: '<img src="http://onarki.no/blogg/wp-content/uploads/2016/05/HaraldEia.jpeg" width="500">',
         alternatives: [
             "Harald Eia",
             "Bård Tufte Johansen",
@@ -45,7 +45,7 @@ var questions = [
     },
     {
         question: "Hvor mange meter over havet ligger toppen av Mount Everest?",
-        multimedia: '<img src="https://cdn.britannica.com/s:500x350/17/83817-004-C5DB59F8.jpg" width="300">',
+        multimedia: '<img src="https://cdn.britannica.com/s:500x350/17/83817-004-C5DB59F8.jpg" width="500">',
         alternatives: [
             "8848 meter",
             "8484 meter",
@@ -128,6 +128,9 @@ function nextQuestion() {
 function shuffle(a) {
     /**
      * Funksjon som gir elementene i en array en tilfeldig plassering
+     * Funksjonen tilsvarer Pythons inkluderte shuffle-funksjon
+     * Basert på Fisher Yates modern shuffle algorithm: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm
+     * Hentet fra StackOverflow: https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
      */
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
