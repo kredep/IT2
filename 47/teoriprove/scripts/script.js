@@ -11,13 +11,13 @@ var answers = [];           // array for å holde styr på riktige og gale svar.
  */
 var questions = [
     {
-        question: "Hvor mange trekanter er det her?",
-        multimedia: '<img src="https://i.imgur.com/Sy9l3Pp.jpg" width="300">',
+        question: "Hvilket land er det mørkerøde?",
+        multimedia: '<img src="https://www.drivingdirectionsandmaps.com/wp-content/uploads/country-locator/mg-locator-map.gif" width="300">',
         alternatives: [
-            "24",
-            "12",
-            "18",
-            "30"
+            "Kina",
+            "Kasakhstan",
+            "Mongolia",
+            "Nepal"
         ],
         correct: 2
     },
