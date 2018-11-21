@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+body {
+    margin: 0;
+    background-color: rgb(50,50,50);
+    text-align: center;
+    font-family: 'Montserrat', serif;
+    color: white;
+    font-size: 1.5em;
+}
+input[type='text'] {
+    padding: 5px;
+    font-size: 20px;
+    font-family: 'Montserrat', serif;
+}
+input[type='radio'] {
+    width: 18px;
+    height: 18px;
+    margin-right: 50px;
+}
+img {
+    max-width: 500px;
+    max-height: 500px;
+}
+.grid-container {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-areas:
+    'overview image image'
+    'rating rating rating'
+    'previous result next';
+    grid-template-columns: 33% 34% 33%;
+    grid-template-rows: 60% 20% 20%;
+    min-height: 100vh;
+}
+.grid-item {
+    padding: 40px;
+    background-color: rgb(50,50,50);
+}
+#overview {
+    grid-area: overview;
+}
+#image {
+    grid-area: image;
+}
+#rating {
+    grid-area: rating;
+}
+#previous {
+    grid-area: previous;
+}
+#result {
+    grid-area: result;
+}
+#next {
+    grid-area: next;
+}
+.image {
+    max-height: 100%;
+    max-width: 100%;
+}
+input[type='button'], input[type=''] {
+    outline: 0;
+    border: 2px solid white;
+    color: white;
+    background-color: rgb(25,25,25);
+    font-size: 26px;
+    padding: 15px;
+    transition: 0.25s;
+}
+input[type='button']:hover {
+    background-color: white;
+    color: rgb(50,50,50);
+    cursor: pointer;
+}
