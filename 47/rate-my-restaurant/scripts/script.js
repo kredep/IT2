@@ -105,7 +105,7 @@ function showResults() {
         avgs.push(
             {
                 index: i,
-                score: avgScore,
+                score: avgScore.toFixed(1),
                 amount: scores.length
             }
         );
