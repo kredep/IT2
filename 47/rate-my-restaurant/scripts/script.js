@@ -129,10 +129,12 @@ function showResults() {
         var scores = restaurants[i]["score"];
         var avgScore = 0;
         // løkke som går gjennom alle scorene som har blitt gitt
-        for (let x=0;x<scores.length;x++) {
-            avgScore += scores[x];
+        if (scores.length > 0) {
+            for (let x=0;x<scores.length;x++) {
+                avgScore += scores[x];
+            }
+            avgScore /= scores.length;
         }
-        avgScore /= scores.length;
         avgs.push(
             {
                 index: i,
