@@ -30,7 +30,7 @@ img {
     'rating rating rating'
     'previous result next';
     grid-template-columns: 33% 34% 33%;
-    grid-template-rows: 60% 20% 20%;
+    grid-template-rows: 50% 30% 20%;
     min-height: 100vh;
 }
 .grid-item {
