@@ -27,7 +27,7 @@ img {
     grid-gap: 0px;
     grid-template-areas:
     'overview image image'
-    'rating rating rating'
+    'overview rating rating'
     'previous result next';
     grid-template-columns: 33% 34% 33%;
     grid-template-rows: 50% 30% 20%;
