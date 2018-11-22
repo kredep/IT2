@@ -128,7 +128,7 @@ function showResults() {
     for (let i=0;i<restaurants.length;i++) {
         var scores = restaurants[i]["score"];
         var avgScore = 0;
-        // løkke som går gjennom alle scorene som har blitt gitt
+        // løkke som går gjennom alle scorene som har blitt gitt dersom de/den finnes
         if (scores.length > 0) {
             for (let x=0;x<scores.length;x++) {
                 avgScore += scores[x];
