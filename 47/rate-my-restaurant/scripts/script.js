@@ -1,6 +1,6 @@
 window.onload = startUp;
 
-var current = 0;        // indexen til nåværende spørsmål
+var current = 0;
 var restaurants = [
     {
         name: 'Restaurant 1',
@@ -32,6 +32,14 @@ var restaurants = [
         adr: 'Restaurantgata 4, Porsgrunn',
         tlf: '666 55 444',
         desc: 'Nok en restaurant i Porsgrunn',
+        score: []
+    },
+    {
+        name: 'Restaurant 5',
+        img: '<img src="https://www.jasna.sk/fileadmin/_processed_/csm_PWH_7635_2bcb7ca580.jpg">',
+        adr: 'Restaurantgata 5, Porsgrunn',
+        tlf: '555 44 333',
+        desc: 'Atter en restaurant i Porsgrunn',
         score: []
     }
 ];
@@ -74,9 +82,9 @@ function showRestaurant() {
     document.getElementById("fourth").onclick = nextRestaurant;
     
     overview.innerHTML = '<h1>' + restaurants[current]["name"] + '</h1>'
-                        + '<h4>Adresse: ' + restaurants[current]["adr"] + '</h4>'
-                        + '<h4>Tlf: ' + restaurants[current]["tlf"] + '</h4>'
-                        + '<h4>Beskrivelse: ' + restaurants[current]["desc"] + '</h4>';
+                        + '<p><span class="subtitle">Adresse:</span><br> ' + restaurants[current]["adr"] + '</p>'
+                        + '<p><span class="subtitle">Tlf:</span><br> ' + restaurants[current]["tlf"] + '</p>'
+                        + '<p><span class="subtitle">Beskrivelse:</span><br> ' + restaurants[current]["desc"] + '</p>';
     image.innerHTML = restaurants[current]["img"];
     rating.innerHTML = '<h2>Sett en score:</h2>';
     for (let i = 1; i <= 6; i++) {
