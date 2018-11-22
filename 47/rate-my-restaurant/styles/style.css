@@ -41,6 +41,7 @@ img {
 #overview {
     grid-area: overview;
     background-color: rgb(148, 96, 53);
+    text-align: left;
 }
 #image {
     grid-area: image;
@@ -66,7 +67,7 @@ img {
     max-height: 100%;
     max-width: 100%;
 }
-input[type='button'], input[type=''] {
+input[type='button'] {
     outline: 0;
     border: 2px solid white;
     color: white;
@@ -79,4 +80,8 @@ input[type='button']:hover {
     background-color: white;
     color: rgb(148, 96, 53);
     cursor: pointer;
+}
+.subtitle {
+    font-size: 1.15em;
+    font-weight: bold;
 }
