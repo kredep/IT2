@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-    background-color: rgb(50,50,50);
+    background-color: rgb(148, 96, 53);
     text-align: center;
     font-family: 'Montserrat', serif;
     color: white;
@@ -36,25 +36,31 @@ img {
 }
 .grid-item {
     padding: 40px;
-    background-color: rgb(50,50,50);
+    background-color: rgb(148, 96, 53);
 }
 #overview {
     grid-area: overview;
+    background-color: rgb(148, 96, 53);
 }
 #image {
     grid-area: image;
+    background-color: rgb(132, 86, 48);
 }
 #rating {
     grid-area: rating;
+    background-color: rgb(127, 78, 38);
 }
 #previous {
     grid-area: previous;
+    background-color: rgb(111, 70, 37);
 }
 #result {
     grid-area: result;
+    background-color: rgb(101, 64, 35);
 }
 #next {
     grid-area: next;
+    background-color: rgb(111, 70, 37);
 }
 .image {
     max-height: 100%;
@@ -64,13 +70,13 @@ input[type='button'], input[type=''] {
     outline: 0;
     border: 2px solid white;
     color: white;
-    background-color: rgb(25,25,25);
+    background-color: rgb(148, 96, 53);
     font-size: 26px;
     padding: 15px;
     transition: 0.25s;
 }
 input[type='button']:hover {
     background-color: white;
-    color: rgb(50,50,50);
+    color: rgb(148, 96, 53);
     cursor: pointer;
 }
