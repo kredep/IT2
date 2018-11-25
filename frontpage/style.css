@@ -244,6 +244,7 @@ h1 {
     letter-spacing: 4px;
     border-bottom: 2px solid white;
     padding-bottom: 25px;
+    text-shadow: 0px 3px hsla(0,0%,10%,0.7);
 }
 .subtitle {
     font-size: 0.6em;
