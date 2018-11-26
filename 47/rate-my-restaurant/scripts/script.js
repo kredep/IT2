@@ -4,6 +4,7 @@ window.onload = startUp;
 var current = 0;
 // assosiativ array med info om restauranten
 // alle karakterer restauranten får legges i score-lista til restauranten
+
 var restaurants = [
     {
         name: 'Restaurant 1',
@@ -118,6 +119,7 @@ function sendScore() {
     if (score != "") {
         restaurants[current]["score"].push(Number(score));
         document.getElementById("rating").innerHTML = '<h1>Takk!</h1><p>Du ga karakteren: ' + score + '</p>';
+
     }
 }
 
@@ -153,7 +155,7 @@ function showResults() {
         let index = avgs[i]["index"];
         body.innerHTML += '<p><b>' + restaurants[index]["name"] + ':</b><br> Gjennomsnittlig score: ' + avgs[i]["score"] + '<br>Antall anmeldelser: ' + avgs[i]["amount"] +'</p>';
     }
-    body.innerHTML += '<input id="back" type="button" value="Tilbake">';
+    body.innerHTML += '<input id="back" type="button" value="Tilbake til start">';
     document.getElementById("back").onclick = fromResults;
 }
 
@@ -167,7 +169,8 @@ function fromResults() {
                     + '<div id="previous" class="grid-item"></div>'
                     + '<div id="result" class="grid-item"></div>'
                     + '<div id="next" class="grid-item"></div></div>';
-    previousRestaurant();
+    current = 0;
+    showRestaurant();
 }
 
 function shuffle(a) {
