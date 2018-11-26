@@ -155,7 +155,7 @@ function showResults() {
         let index = avgs[i]["index"];
         body.innerHTML += '<p><b>' + restaurants[index]["name"] + ':</b><br> Gjennomsnittlig score: ' + avgs[i]["score"] + '<br>Antall anmeldelser: ' + avgs[i]["amount"] +'</p>';
     }
-    body.innerHTML += '<input id="back" type="button" value="Tilbake til start">';
+    body.innerHTML += '<input id="back" type="button" value="Rate restauranter igjen">';
     document.getElementById("back").onclick = fromResults;
 }
 
