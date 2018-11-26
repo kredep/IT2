@@ -8,7 +8,7 @@ var current = 0;
 var restaurants = [
     {
         name: 'Restaurant 1',
-        img: '<img src="https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg">',
+        img: '<img src="https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg" alt="Bilde av en restaurant">',
         adr: 'Restaurantgata 1, Porsgrunn',
         tlf: '999 88 777',
         desc: 'En restaurant i Porsgrunn',
@@ -16,7 +16,7 @@ var restaurants = [
     },
     {
         name: 'Restaurant 2',
-        img: '<img src="https://www.scandichotels.no/imageVault/publishedmedia/8ngmvcvxgcvkqibk1qqm/Scandic-Aarhus-City-Interior-restaurant-The-Grill0.jpg">',
+        img: '<img src="https://www.scandichotels.no/imageVault/publishedmedia/8ngmvcvxgcvkqibk1qqm/Scandic-Aarhus-City-Interior-restaurant-The-Grill0.jpg" alt="Bilde av en restaurant">',
         adr: 'Restaurantgata 2, Porsgrunn',
         tlf: '888 77 666',
         desc: 'En annen restaurant i Porsgrunn',
@@ -24,7 +24,7 @@ var restaurants = [
     },
     {
         name: 'Restaurant 3',
-        img: '<img src="https://www.jasna.sk/fileadmin/_processed_/csm_PWH_7635_2bcb7ca580.jpg">',
+        img: '<img src="https://www.jasna.sk/fileadmin/_processed_/csm_PWH_7635_2bcb7ca580.jpg" alt="Bilde av en restaurant">',
         adr: 'Restaurantgata 3, Porsgrunn',
         tlf: '777 66 555',
         desc: 'Enda en restaurant i Porsgrunn',
@@ -32,7 +32,7 @@ var restaurants = [
     },
     {
         name: 'Restaurant 4',
-        img: '<img src="https://www.scandichotels.no/imageVault/publishedmedia/qn6infvg30381stkubky/scandic-sundsvall-city-restaurant-verket-10.jpg">',
+        img: '<img src="https://www.scandichotels.no/imageVault/publishedmedia/qn6infvg30381stkubky/scandic-sundsvall-city-restaurant-verket-10.jpg" alt="Bilde av en restaurant">',
         adr: 'Restaurantgata 4, Porsgrunn',
         tlf: '666 55 444',
         desc: 'Nok en restaurant i Porsgrunn',
@@ -40,7 +40,7 @@ var restaurants = [
     },
     {
         name: 'Restaurant 5',
-        img: '<img src="https://www.jasna.sk/fileadmin/_processed_/csm_PWH_7635_2bcb7ca580.jpg">',
+        img: '<img src="https://www.jasna.sk/fileadmin/_processed_/csm_PWH_7635_2bcb7ca580.jpg" alt="Bilde av en restaurant">',
         adr: 'Restaurantgata 5, Porsgrunn',
         tlf: '555 44 333',
         desc: 'Atter en restaurant i Porsgrunn',
