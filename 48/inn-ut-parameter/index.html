@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="scripts/script.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <title>inn-ut-parameter</title>
+</head>
+<body>
+    <div style="float:left;">
+        <h1>Oppgave 1</h1>
+        <div id="oppg1">12x12 = </div>
+        <br>
+        <h1>Oppgave 2</h1>
+        <p>var ord = ["bil", "båt", "fly", "tog", "ubåt"];<br>Traversert:</p>
+        <div id="oppg2"></div>
+        <br>
+        <h1>Oppgave 3</h1>
+        <div id="oppg3">Største tall av -2 og 5 er: </div>
+        <br>
+        <h1>Oppgave 5</h1>
+        <h1>f(x) = <input type="text" id="np-a" placeholder="a"> x + <input type="text" id="np-b" placeholder="b"></h1>
+        <input type="button" value="Finn nullpunkt" id="nullpunkt">
+        <br><br>
+        <div id="oppg5"></div>
+    </div>
+    <div style="float:left; margin-left: 100px;">
+        <h1>Oppgave 4</h1>
+        <h1>Graftegner</h1>
+    <div id="grid">
+        <div id="controls">
+            <input type="button" id="up" value="Opp">
+            <input type="button" id="down" value="Ned">
+            <input type="button" id="left" value="Venstre">
+            <input type="button" id="right" value="Høyre">
+            <input type="button" id="tileinc" value="+ Zoom">
+            <input type="button" id="tiledec" value="- Zoom">
+        </div>
+        <br>
+        <canvas id="graphics" width="400" height="400"></canvas>
+    </div>
+    <div id="input">
+        <br><br>
+        Grad av funksjonen:
+        <select id="functiongrade">
+            <option value="1" selected>Første</option>
+            <option value="2">Andre</option>
+            <option value="3">Tredje</option>
+        </select>
+        <br><br>
+        <h1 id="function">f(x) = ax<sup>3</sup> + bx<sup>2</sup> + cx + d</h1>
+        <br>
+        <div>
+            <label for="clr">Farge på graf: </label>
+            <input type="color" id="color" name="clr" value="#FF0000">
+        </div>
+        <br><br>
+        <input type="button" value="Plott graf" id="plot">
+    </div>
+    </div>
+</body>
+</html>
