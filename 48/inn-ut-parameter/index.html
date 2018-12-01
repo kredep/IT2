@@ -28,37 +28,36 @@
     </div>
     <div style="float:left; margin-left: 100px;">
         <h1>Oppgave 4</h1>
-        <h1>Graftegner</h1>
-    <div id="grid">
-        <div id="controls">
-            <input type="button" id="up" value="Opp">
-            <input type="button" id="down" value="Ned">
-            <input type="button" id="left" value="Venstre">
-            <input type="button" id="right" value="Høyre">
-            <input type="button" id="tileinc" value="+ Zoom">
-            <input type="button" id="tiledec" value="- Zoom">
+        <div id="grid">
+            <div id="controls">
+                <input type="button" id="up" value="Opp">
+                <input type="button" id="down" value="Ned">
+                <input type="button" id="left" value="Venstre">
+                <input type="button" id="right" value="Høyre">
+                <input type="button" id="tileinc" value="+ Zoom">
+                <input type="button" id="tiledec" value="- Zoom">
+            </div>
+            <br>
+            <canvas id="graphics" width="400" height="400"></canvas>
         </div>
-        <br>
-        <canvas id="graphics" width="400" height="400"></canvas>
-    </div>
-    <div id="input">
-        <br><br>
-        Grad av funksjonen:
-        <select id="functiongrade">
-            <option value="1" selected>Første</option>
-            <option value="2">Andre</option>
-            <option value="3">Tredje</option>
-        </select>
-        <br><br>
-        <h1 id="function">f(x) = ax<sup>3</sup> + bx<sup>2</sup> + cx + d</h1>
-        <br>
-        <div>
-            <label for="clr">Farge på graf: </label>
-            <input type="color" id="color" name="clr" value="#FF0000">
+        <div id="input">
+            <br><br>
+            Grad av funksjonen:
+            <select id="functiongrade">
+                <option value="1" selected>Første</option>
+                <option value="2">Andre</option>
+                <option value="3">Tredje</option>
+            </select>
+            <br><br>
+            <h1 id="function">f(x) = ax<sup>3</sup> + bx<sup>2</sup> + cx + d</h1>
+            <br>
+            <div>
+                <label for="clr">Farge på graf: </label>
+                <input type="color" id="color" name="clr" value="#FF0000">
+            </div>
+            <br><br>
+            <input type="button" value="Plott graf" id="plot">
         </div>
-        <br><br>
-        <input type="button" value="Plott graf" id="plot">
-    </div>
     </div>
 </body>
 </html>
