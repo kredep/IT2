@@ -14,16 +14,13 @@ function startUp() {
     centerX = Math.floor(dimentions[0]/2);
     centerY = Math.floor(dimentions[1]/2);
     update();
-    changeInput();
     document.getElementById("up").onclick = up;
     document.getElementById("down").onclick = down;
     document.getElementById("left").onclick = left;
     document.getElementById("right").onclick = right;
     document.getElementById("tileinc").onclick = tileinc;
     document.getElementById("tiledec").onclick = tiledec;
-    document.getElementById("functiongrade").onchange = changeInput;
     document.getElementById("plot").onclick = plot;
-    document.getElementById("color").onchange = color;
 }
 
 function kvadrat(num) {
@@ -75,31 +72,15 @@ var centerX;
 var centerY;
 var zoom = 0;
 var params = {
-    "a": 1,
-    "b": 3,
-    "c": 0.2,
-    "d": -2
+    "a": 2,
+    "b": -1,
 };
 var grade = 3;
 var graphColor = "#FF0000";
 
-function color() {
-    graphColor = document.getElementById("color").value;
-    update();
-}
-function changeInput() {
-    var grade = Number(document.getElementById("functiongrade").value);
-    if (grade == 1) {
-        document.getElementById("function").innerHTML = 'f(x) = <input type="text" id="a" placeholder="a"> x + <input type="text" id="b" placeholder="b">';
-    } else if (grade == 2) {
-        document.getElementById("function").innerHTML = 'f(x) = <input type="text" id="a" placeholder="a"> x<sup>2</sup> + <input type="text" id="b" placeholder="b"> x + <input type="text" id="c" placeholder="c">';
-    } else if (grade == 3) {
-        document.getElementById("function").innerHTML = 'f(x) = <input type="text" id="a" placeholder="a"> x<sup>3</sup> + <input type="text" id="b" placeholder="b"> x<sup>2</sup> + <input type="text" id="c" placeholder="c"> x + <input type="text" id="d" placeholder="d">';
-    }
-}
 function plot() {
-    grade = Number(document.getElementById("functiongrade").value);
-    var variables = ["a","b","c","d"];
+    var variables = ["a","b"];
+    var grade = 1;
     for (var i=0;i<=grade;i++) {
         params[variables[i]] = Number(document.getElementById(variables[i]).value);
     }
@@ -253,13 +234,7 @@ function update() {
     var previousPoint = [];
     for (var i=start;i<end;i++) {
         var x = i/interval;
-        if (grade == 1) {
-            var y = firstgrade(x,params["a"],params["b"]);
-        } else if (grade == 2) {
-            var y = secondgrade(x,params["a"],params["b"],params["c"]);
-        } else if (grade == 3) {
-            var y = thirdgrade(x,params["a"],params["b"],params["c"],params["d"]);
-        }
+        var y = firstgrade(x,params["a"],params["b"]);
         var pixelWidth =  i + origo[0];
         var pixelHeight = origo[1] - Math.round((y*interval));
         ctx.beginPath();
@@ -283,10 +258,4 @@ function update() {
 }
 function firstgrade(x,a,b) {
     return a*x+b;
-}
-function secondgrade(x,a,b,c) {
-    return a*(x**2)+(b*x)+c;
-}
-function thirdgrade(x,a,b,c,d) {
-    return a*(x**3)+b*(x**2)+c*x+d
 }
