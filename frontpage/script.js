@@ -11,7 +11,8 @@ var urls = [
     "https://i.imgur.com/6lqtcB3.jpg",
     "https://i.imgur.com/DYm1aqo.jpg",
     "https://i.imgur.com/pWNgnmO.jpg",
-    "https://i.imgur.com/mOPyaDA.jpg"
+    "https://i.imgur.com/mOPyaDA.jpg",
+    "https://i.imgur.com/bQGIl9I.jpg"
 ];
 urls = shuffle(urls);
 var timer = 0;
