@@ -20,13 +20,13 @@
         <h1>Oppgave 3</h1>
         <div id="oppg3">Største tall av -2 og 5 er: </div>
         <br>
+    </div>
+    <div style="float:left; margin-left: 100px;">
         <h1>Oppgave 5</h1>
         <h1>f(x) = <input type="text" id="np-a" placeholder="a"> x + <input type="text" id="np-b" placeholder="b"></h1>
         <input type="button" value="Finn nullpunkt" id="nullpunkt">
         <br><br>
         <div id="oppg5"></div>
-    </div>
-    <div style="float:left; margin-left: 100px;">
         <h1>Oppgave 4</h1>
         <div id="grid">
             <div id="controls">
@@ -38,23 +38,11 @@
                 <input type="button" id="tiledec" value="- Zoom">
             </div>
             <br>
-            <canvas id="graphics" width="400" height="400"></canvas>
+            <canvas id="graphics" width="350" height="350"></canvas>
         </div>
         <div id="input">
             <br><br>
-            Grad av funksjonen:
-            <select id="functiongrade">
-                <option value="1" selected>Første</option>
-                <option value="2">Andre</option>
-                <option value="3">Tredje</option>
-            </select>
-            <br><br>
-            <h1 id="function">f(x) = ax<sup>3</sup> + bx<sup>2</sup> + cx + d</h1>
-            <br>
-            <div>
-                <label for="clr">Farge på graf: </label>
-                <input type="color" id="color" name="clr" value="#FF0000">
-            </div>
+            <h1>f(x) = <input type="text" id="a" placeholder="a"> x + <input type="text" id="b" placeholder="b"></h1>
             <br><br>
             <input type="button" value="Plott graf" id="plot">
         </div>
