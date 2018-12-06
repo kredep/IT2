@@ -83,7 +83,7 @@ function shuffle(a) {
         console.log(a);
         colors.push(color.slice(0,color.length));
         arrays.push(a.slice(0,a.length));
-        hist.push((i+1) + " switched with " + (j+1));
+        hist.push((i+1) + " swapped with " + (j+1));
     }
     return arrays;
 }
