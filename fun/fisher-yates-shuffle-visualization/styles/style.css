@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(15,15,15);
+    color: white;
+}
+
+.box {
+    width: 20px;
+    background-color: white;
+    border: 2px dashed white;
+    height: 40px;
+    float: left;
+    margin-left: 10px;
+}
+#wrapper {
+    width: 500px;
+    height: 500px;
+    color: black;
+    float: left;
+}
+#log {
+    float: left;
+}
