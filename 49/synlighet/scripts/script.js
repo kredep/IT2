@@ -8,10 +8,10 @@ function startUp() {
 }
 
 function update() {
-    document.getElementById("runder").innerHTML = "Antall runder: " + runder;
     if (runder == 20) {
         document.getElementById("paprika").style.visibility = "visible";
     } else if (runder < 20) {
         runder++;
     }
+    document.getElementById("runder").innerHTML = "Antall runder: " + runder;
 }
