@@ -32,7 +32,8 @@ function startUp() {
     bilde4.addEventListener("click", function() {
         box.innerHTML = `<audio id="media" controls autoplay>
                         <source src="media/vacation.mp3" type="audio/mpeg">
-                        </audio>`;
+                        </audio><br><br><br>
+                        <img src="https://cdn.betterttv.net/emote/566c9fde65dbbdab32ec053e/2x"><img src="https://cdn.betterttv.net/emote/55b6f480e66682f576dd94f5/2x">`;
         document.getElementById("media").volume = 0.1;
     });
 }
