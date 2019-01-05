@@ -51,6 +51,7 @@ var blackPlayer = new Player(playTime, "Svart", "blackBox");
 var whiteMove = true; // Bool for hvem sitt trekk det er
 var iv; // Variabel for intervallet
 var started = false; // Bool for om spillet har startet
+var gameDraw = false; // Bool for om spillet har blitt avsluttet med remis
 
 function startUp() {
     // Lytter til knapper
@@ -94,12 +95,12 @@ function timer() {
 
 function byttTilSvart() {
     // Sjekker om spillet har startet, hvis ikke -> starter spill
-    if (!started) {
+    if (!started && !gameDraw) {
         iv = setInterval(timer, 100);
         started = true;
         whitePlayer.updateDiv();
         blackPlayer.updateDiv();
-    } else if (whiteMove) {
+    } else if (whiteMove && !gameDraw) {
         // Legger til tid og trekk, oppdaterer div
         // Endrer variabelen for hvem sin tur det er
         whiteMove = false;
@@ -112,7 +113,7 @@ function byttTilSvart() {
 }
 
 function byttTilHvit() {
-    if (!whiteMove) {
+    if (!whiteMove && !gameDraw) {
         // Legger til tid og trekk, oppdaterer div
         // Endrer variabelen for hvem sin tur det er
         whiteMove = true;
@@ -125,6 +126,8 @@ function byttTilHvit() {
 }
 
 function draw() {
+    // Spillet ender i remis - stopper klokker, printer melding og hindrer videre spill
+    gameDraw = true;
     clearInterval(iv);
     whitePlayer.draw();
     blackPlayer.draw();
