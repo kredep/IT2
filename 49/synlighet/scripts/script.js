@@ -3,7 +3,6 @@ window.onload = startUp;
 var runder = 0;
 
 function startUp() {
-    paprika.style.visibility = "hidden";
     knapp.onclick = update;
 }
 
