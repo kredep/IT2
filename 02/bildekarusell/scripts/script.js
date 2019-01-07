@@ -16,7 +16,7 @@ function startUp() {
 
 function timer() {
     var wrapper = document.getElementById("wrapper");
-    wrapper.innerHTML = '<img src="images/' + images[index] + '" alt="Et bilde">'
+    wrapper.innerHTML = '<img src="images/' + images[index] + '" alt="Et bilde">';
     index++;
     if (index == images.length) {
         index = 0;
