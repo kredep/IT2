@@ -58,11 +58,12 @@ function oppgb() {
 function visualisering() {
     var tresort = document.querySelector('#tresort').value; // Henter tresort
     var data = groveTrær[tresort]; // Henter data gitt tresort
-    lagHistogram(data, 'mill.', 'hr', 'søyle', true, 'animasjon'); // Lager histogram
+    lagHistogram(tresort, data, 'mill.', 'hr', 'søyle', true, 'animasjon'); // Lager histogram
 }
 
-function lagHistogram(data, enhet, id, søyleKlasse, anim = false, animKlasse) {
+function lagHistogram(tresort, data, enhet, id, søyleKlasse, anim = false, animKlasse) {
     /**
+     * @param {string} tresort - tresorten som skal visualiseres
      * @param {array} data - liste med data (tall)
      * @param {string} enhet - enhet til dataen
      * @param {string} id - id til div på nettsiden som skal holde histogrammet
