@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-areas: 
+    'a hr'
+    'b hr';
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 50% 50%;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+#a {
+    grid-area: a;
+}
+#b {
+    grid-area: b;
+    border-top: 2px solid black;
+}
+#hr {
+    grid-area: hr;
+    border-left: 2px solid black;
+}
+#wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.3em;
+}
+.søyle {
+    position: absolute;
+    bottom: 50px;
+    background-color: rgb(150, 207, 67);
+    float: left;
+    border-bottom: 2px solid black;
+}
+.animasjon {
+    animation: søyleanimasjon 1.5s forwards;
+}
+.søylenavn {
+    position: absolute;
+    width: 100%;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.søyleverdi {
+    position: absolute;
+    width: 100%;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes søyleanimasjon {
+    from {max-height: 0%;}
+    to {max-height: 100%;}
+}
