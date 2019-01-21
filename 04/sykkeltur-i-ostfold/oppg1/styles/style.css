@@ -1,0 +1,23 @@
+img {
+    user-select: none;
+    float: left;
+}
+.by {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 2px solid red;
+}
+.by:hover {
+    background-color: rgba(255,0,0,0.1);
+    cursor: pointer;
+}
+#fredrikstad {
+    left: 165px;
+    top: 411px;
+}
+#halden {
+    left: 303px;
+    top: 462px;
+}
