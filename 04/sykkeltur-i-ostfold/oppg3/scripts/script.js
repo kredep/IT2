@@ -41,7 +41,7 @@ function leggTilBy() {
             var avstand = avstander[dinBy][byer.indexOf(by)];
             totalavstand += avstand;
             document.getElementById("rute").innerHTML += "<br>--> " + by;
-            document.getElementById("oppsummering").innerHTML = "<strong>Oppsummering:</strong> <br>Totalavstand: " + totalavstand.toFixed(1) + " km<br> Tid: " + beregnTid(totalavstand, fart) + " timer";
+            document.getElementById("oppsummering").innerHTML = "<strong>Oppsummering:</strong> <br>Totalavstand: " + totalavstand.toFixed(1) + " km<br> Tidsbruk: " + beregnTid(totalavstand, fart) + " timer";
             dinBy = by;
         }
     }
