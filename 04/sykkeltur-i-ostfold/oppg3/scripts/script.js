@@ -31,6 +31,11 @@ function startUp() {
 
 function leggTilBy() {
     var by = this.getAttribute("by");
+    // Border farge
+    for (var sted of document.querySelectorAll('.by')) {
+        sted.style.borderColor = "red";
+    }
+    this.style.borderColor = "blue";
     if (dinBy == null) {
         dinBy = by;
         document.getElementById("rute").innerHTML += "Start: " + dinBy;
