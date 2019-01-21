@@ -1,0 +1,38 @@
+img {
+    user-select: none;
+}
+.by {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 2px solid red;
+}
+.by:hover {
+    background-color: rgba(255,0,0,0.1);
+    cursor: pointer;
+}
+img {
+    float: left;
+    user-select: none;
+}
+#fredrikstad {
+    left: 165px;
+    top: 411px;
+}
+#halden {
+    left: 303px;
+    top: 462px;
+}
+#askim {
+    left: 226px;
+    top: 116px;
+}
+#moss {
+    left: 15px;
+    top: 194px;
+}
+#ørje {
+    left: 434px;
+    top: 264px;
+}
