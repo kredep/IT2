@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display');
+body {
+    text-align: center;
+    background-color: green;
+    color: white;
+    font-family: 'Major Mono Display', sans-serif;
+}
+#jackpot {
+    margin-top: 40vh;
+    font-size: 3em;
+}
+#spin {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 100px;
+    height: 50px;
+    padding-top: 25px;
+    background-color: darkgreen;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    transition: 0.15s;
+}
+#spin:hover {
+    width: 96px;
+    height: 46px;
+    padding-top: 23px;
+    background-color: green;
+    border: 2px solid darkgreen;
+    cursor: pointer;
+    font-size: 1.7em;
+}
+#statistikk {
+    margin-top: 20vh;
+}
