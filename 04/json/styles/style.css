@@ -1,0 +1,11 @@
+#grid {
+    display: grid;
+    grid-template-areas: 'a b';
+    grid-template-columns: 50% 50%;
+}
+#item1 {
+    grid-area: a;
+}
+#item2 {
+    grid-area: b;
+}
