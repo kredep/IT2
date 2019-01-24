@@ -1,0 +1,6 @@
+klasseliste =`[
+    {"fornavn":"Peder", "etternavn": "Kristensen", "alder":18},
+    {"fornavn":"Ola", "etternavn": "Nordmann", "alder":24},
+    {"fornavn":"Marve", "etternavn": "Fleksnes", "alder":77},
+    {"fornavn":"Staale", "etternavn": "Bergersen", "alder":37}
+    ]`;
