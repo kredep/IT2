@@ -33,7 +33,7 @@ function jackpot() {
         document.querySelector('#lyd').innerHTML = `<audio id="media" autoplay>
                                                         <source src="sounds/roll.mp3" type="audio/mpeg">
                                                     </audio>`;
-        document.querySelector('#media').volume = 0.02;
+        document.querySelector('#media').volume = 0.1;
         document.querySelector('#statistikk').innerHTML = `Forsøk: ${forsøk}<br>Vunnet: ${vunnet}`;
         doEffect(str, melding, win);
     }
