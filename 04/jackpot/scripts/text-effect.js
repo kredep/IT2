@@ -9,6 +9,7 @@ var counter;
 var finalText;
 var melding;
 var winner;
+var iv;
 
 function doEffect(txt, mld, win) {
     run = true;
@@ -16,6 +17,17 @@ function doEffect(txt, mld, win) {
     melding = mld;
     winner = win;
     document.querySelector('#melding').innerHTML = 'spinner...';
+    var i = 0;
+    iv = setInterval(function() {
+        document.querySelector('#melding').innerHTML = 'spinner';
+        for (var x = 0; x < i; x++) {
+            document.querySelector('#melding').innerHTML += '.';
+        }
+        if (i >= 3) {
+            i = -1;
+        }
+        i++;
+    }, 200);
     counter = setInterval(timer, 150);
     for (let i=0;i<finalText.length;i++) {
         var interval = setInterval(function() {randomize(i)}, randomRange(100,150));
@@ -24,13 +36,9 @@ function doEffect(txt, mld, win) {
 }
 
 function randomize(c) {
-    if (finalText[c] != ' ') {
-        var random = randomRange(0, abc.length-1);
-        var letter = abc[random];
-        current[c] = letter;
-    } else {
-        current[c] = ' ';
-    }
+    var random = randomRange(0, abc.length-1);
+    var letter = abc[random];
+    current[c] = letter;
     update();
 }
 
@@ -54,12 +62,13 @@ function timer() {
         } else if (run) {
             run = false;
             clearInterval(counter);
+            clearInterval(iv);
             document.querySelector('#melding').innerHTML = melding;
             if (winner) {
                 document.querySelector('#lyd').innerHTML = `<audio id="media" autoplay>
                                                                 <source src="sounds/win.mp3" type="audio/mpeg">
                                                             </audio>`;
-                document.querySelector('#media').volume = 0.02;
+                document.querySelector('#media').volume = 0.1;
             }
             time = 0;
             last = 5;
