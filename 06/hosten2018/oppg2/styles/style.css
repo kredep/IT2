@@ -1,0 +1,36 @@
+#meny {
+    width: 850px;
+    float: left;
+}
+#video {
+    float: left;
+    clear: left;
+}
+#bildegalleri {
+    float: left;
+    margin-left: 50px;
+}
+#granbo {
+    position: absolute;
+    left: 324px;
+    top: 106px;
+    width: 109px;
+    height: 81px;
+    border-radius: 47%;
+    border: 2px solid blue;
+}
+
+#granstua {
+    position: absolute;
+    left: 437px;
+    top: 152px;
+    width: 116px;
+    height: 90px;
+    border-radius: 47%;
+    border: 2px solid blue;
+}
+
+#granbo:hover, #granstua:hover {
+    background: rgba(0,0,255,0.2);
+    cursor: pointer;
+}
