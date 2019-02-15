@@ -1,0 +1,10 @@
+table, td, th, tr {
+    border: 1px solid black;
+}
+
+#boks1, #boks2 {
+    float: left;
+}
+#boks2 {
+    margin-left: 50px;
+}
