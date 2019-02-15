@@ -1,0 +1,10 @@
+#banner {
+    width: 1000px;
+    height: 390px;
+    border: 2px solid black;
+    background-size: cover;
+    transition: 0.1s;
+    color: white;
+    font-size: 3em;
+    text-shadow: 4px 4px black;
+}
