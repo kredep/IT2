@@ -5,8 +5,16 @@ var eksamener = 0;
 
 var fag = [
     'Engelsk',
+    'Geografi',
     'Historie, VG3',
-    'Norsk, VG3'
+    'Kroppsøving, VG3',
+    'Naturfag',
+    'Matematikk 1P/1T',
+    'Norsk hovedmål, skriftlig VG3',
+    'Norsk sidemål, skriftlig VG3',
+    'Norsk, muntlig VG3',
+    'Religion og etikk',
+    'Samfunnsfag'
 ];
 
 function onLoad() {
