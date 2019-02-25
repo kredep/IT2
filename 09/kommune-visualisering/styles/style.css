@@ -1,0 +1,39 @@
+#hr {
+    width: 80%;
+    height: 80%;
+}
+#wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.3em;
+}
+.sirkel {
+    position: relative;
+    background-color: rgb(150, 207, 67);
+    border-radius: 50%;
+    float: left;
+    margin: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+.animasjon {
+    animation: anim 3s forwards;
+}
+.detaljer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.sirkel-wrap {
+    position: relative;
+    float: left;
+}
+@keyframes anim {
+    from {max-height: 0%; max-width: 0%;}
+    to {max-height: 100%; max-width: 100%;}
+}
