@@ -81,6 +81,13 @@ function animate (elem, maks, delay, data1, enhet, data2) {
         var iv = setInterval(function () {
             if (lengde+4 < maks) {
                 lengde += 4;
+                frac = Math.floor((lengde/maks)*data1);
+                elem.style.width = lengde + "px";
+                elem.style.height = lengde + "px";
+                elem.innerHTML = `
+                    <span class="detaljer">${frac} ${enhet} <br>
+                    ${data2}</span>
+                `;
             } else {
                 clearInterval(iv);
                 elem.style.width = maks + "px";
@@ -90,13 +97,6 @@ function animate (elem, maks, delay, data1, enhet, data2) {
                     ${data2}</span>
                 `;
             }
-            frac = Math.floor((lengde/maks)*data1);
-            elem.style.width = lengde + "px";
-            elem.style.height = lengde + "px";
-            elem.innerHTML = `
-                <span class="detaljer">${frac} ${enhet} <br>
-                ${data2}</span>
-            `;
         }, speed);
     }, delay);
 }
