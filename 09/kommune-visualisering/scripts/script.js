@@ -2,6 +2,7 @@ window.onload = onLoad;
 
 var kommuner = ["Porsgrunn", "Skien", "Siljan", "Bamble", "Kragerø", "Drangedal"];
 var folketall = [36091, 54510, 2351, 14183, 10506, 4105];
+var speed = 8;
 
 function onLoad() {
     // Lager visualisering
@@ -30,7 +31,8 @@ function visualiserMedSirkler(maksDiameter, minDiameter, tittel, dataY, dataX, e
     wrapper = document.querySelector('#wrapper'); // Henter det nye elementet
     wrapper.innerHTML = "<br><h1>" + tittel + "</h1>"; // Tittel
     var maxVerdi = Math.max(...dataY); // Største verdi blant dataen
-    
+    var timeout = 0;
+
     // Lager sirker
     for (var i = 0; i < dataY.length; i++) {
         var div = document.createElement("DIV");
@@ -47,8 +49,6 @@ function visualiserMedSirkler(maksDiameter, minDiameter, tittel, dataY, dataX, e
         }
         */
 
-        sirkel.style.width = sideLengde + "px";
-        sirkel.style.height = sideLengde + "px";
         var colors = [random(0,255),random(0,255),random(0,255)];
         // Avgjør om skriften burde være mørk eller lys
         if ((colors[0]*0.299+colors[1]*0.587+colors[2]*0.144) < 186) {
@@ -60,29 +60,45 @@ function visualiserMedSirkler(maksDiameter, minDiameter, tittel, dataY, dataX, e
 
         // ANIMASJON MED JAVASCRIPT
         if (anim) {
-            animate(sirkel, sideLengde);
+            animate(sirkel, sideLengde, timeout, dataY[i], enhet, dataX[i]);
+            timeout += Math.floor(speed/6*sideLengde);
+        } else {
+            sirkel.style.width = sideLengde + "px";
+            sirkel.style.height = sideLengde + "px";
+            sirkel.innerHTML = `
+                <span class="detaljer">${dataY[i]} ${enhet} <br>
+                ${dataX[i]}</span>
+            `;
         }
-        
-        sirkel.innerHTML = `
-            <span class="detaljer">${dataY[i]} ${enhet} <br>
-            ${dataX[i]}</span>
-        `;
         div.appendChild(sirkel);
         wrapper.appendChild(div);
     }
 }
 
-function animate (elem, maks) {
+function animate (elem, maks, delay, data1, enhet, data2) {
     var lengde = 0;
+    setTimeout(function() {
         var iv = setInterval(function () {
-            if (lengde < maks) {
-                lengde++;
+            if (lengde+4 < maks) {
+                lengde += 4;
             } else {
                 clearInterval(iv);
+                elem.style.width = maks + "px";
+                elem.style.height = maks + "px";
+                elem.innerHTML = `
+                    <span class="detaljer">${data1} ${enhet} <br>
+                    ${data2}</span>
+                `;
             }
+            frac = Math.floor((lengde/maks)*data1);
             elem.style.width = lengde + "px";
             elem.style.height = lengde + "px";
-        }, 5);
+            elem.innerHTML = `
+                <span class="detaljer">${frac} ${enhet} <br>
+                ${data2}</span>
+            `;
+        }, speed);
+    }, delay);
 }
 
 function random(min, max) {
