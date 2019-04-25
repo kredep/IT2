@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+}
+#tid {
+    margin-top: 150px;
+    font-size: 3em;
+}
+#start {
+    background-color: lightskyblue;
+}
+#info {
+    font-size: 1.2em;
+    margin-top: 30px;
+}
+.knapp {
+    color: white;
+    margin-top: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 0;
+    font-size: 1.5em;
+    cursor: pointer;
+}
