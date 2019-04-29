@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="scripts/script.js"></script>
+    <title>Kalender</title>
+</head>
+<body>
+    <h1>Kalender</h1>
+    Måneden har <input id="antall" type="text"> dager<br>
+    Måneden begynner på en 
+    <select id="start">
+        <option value="0">Mandag</option>
+        <option value="1">Tirsdag</option>
+        <option value="2">Onsdag</option>
+        <option value="3">Torsdag</option>
+        <option value="4">Fredag</option>
+        <option value="5">Lørdag</option>
+        <option value="6">Søndag</option>
+    </select><br><br>
+    <input id="lag" type="button" value="Lag kalender">
+    <br><br>
+    <div id="kalender" style="font-family: monospace;"></div>
+</body>
+</html>
