@@ -33,7 +33,7 @@ function onLoad() {
 function byggLogin() {
     document.body.innerHTML = `
         <h1>Login</h1>
-        <input type="text" id="password">
+        <input type="password" id="password">
         <input type="button" id="login" value="Login">
         <br><br><br>
         <input type="button" id="resultater" value="Vis resultater">
