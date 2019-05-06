@@ -1,5 +1,6 @@
 window.onload = onLoad;
 
+// Passord til bruk på nettsiden
 var passwords = [
     "Passord001",
     "Passord002",
@@ -13,6 +14,7 @@ var passwords = [
     "Passord010"
 ];
 
+// Oversikt over partier og deres stemmer
 var partierOgStemmer = {
     "Rødt": 0,
     "SV": 0,
@@ -27,10 +29,12 @@ var partierOgStemmer = {
 };
 
 function onLoad() {
+    // Lager login-siden ved oppstart
     byggLogin();
 }
 
 function byggLogin() {
+    // Lager login-siden og lytter til knapper
     document.body.innerHTML = `
         <h1>Login</h1>
         <input type="password" id="password">
@@ -43,6 +47,7 @@ function byggLogin() {
 }
 
 function resultater() {
+    // Henter resultater og lager histogram
     document.body.innerHTML = '<div id="wrapper" style="height: 600px;"></div><input id="return" type="button" value="Tilbake til innlogging">';
     var data = [];
     var dataNavn = [];
@@ -51,12 +56,14 @@ function resultater() {
         dataNavn.push(parti);
     }
     lagHistogram("Valgresultat", data, dataNavn, "", "wrapper", "søyle", true, "animasjon");
-    document.getElementById("return").onclick = byggLogin;
+    document.getElementById("return").onclick = byggLogin; // Lytter for tilbakeknapp
 }
 
 function login() {
+    // Sjekker om passordet ligger i lista
     var pw = document.getElementById("password").value;
     if (passwords.includes(pw) && pw != "") {
+        // Fjerner passordet fra lista og lager stemmeskjema
         var index = passwords.indexOf(pw);
         passwords[index] = "";
         giStemme();
@@ -66,18 +73,22 @@ function login() {
 }
 
 function giStemme() {
+    // Lager skjema for innsending av stemme
     document.body.innerHTML = `
         <h1>Gi din stemme</h1>
         <form id="partier"></form>
         <input type="button" id="send-stemme" value="Send stemme">
     `;
+    // Lager knapp for hvert parti
     for (var parti in partierOgStemmer) {
         document.getElementById("partier").innerHTML += `<input type="radio" value="${parti}" name="parti"> ${parti} <br>`;
     }
+    // Lytter til send-knappen
     document.getElementById("send-stemme").onclick = sendStemme;
 }
 
 function sendStemme() {
+    // Bekrefter stemmen og sender inn
     var stemme = document.getElementById("partier").parti.value;
     var bekreft = confirm(`Ønsker du å gi din stemme til ${stemme}?`);
     if (bekreft) {
@@ -91,6 +102,7 @@ function sendStemme() {
 
 function lagHistogram(tittel, data, dataNavn, enhet, id, søyleKlasse, anim = false, animKlasse) {
     /**
+     * Funksjon som lager et histogram.
      * @param {string} tittel - tittel på histogrammet
      * @param {array} data - liste med data (tall)
      * @param {array} dataNavn - liste med navn til søylene
