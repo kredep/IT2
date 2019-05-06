@@ -1,16 +1,16 @@
 window.onload = onLoad;
 
 var passwords = [
-    "Passord01",
-    "Passord02",
-    "Passord03",
-    "Passord04",
-    "Passord05",
-    "Passord06",
-    "Passord07",
-    "Passord08",
-    "Passord09",
-    "Passord10"
+    "Passord001",
+    "Passord002",
+    "Passord003",
+    "Passord004",
+    "Passord005",
+    "Passord006",
+    "Passord007",
+    "Passord008",
+    "Passord009",
+    "Passord010"
 ];
 
 var partierOgStemmer = {
