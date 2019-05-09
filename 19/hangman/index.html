@@ -7,13 +7,18 @@
     <script src="scripts/script.js"></script>
     <title>Hangman</title>
 </head>
-<body>
+<body style="text-align: center; font-size: 1.2em;">
     <div id="hangman" style="font-size: 2em;"></div>
+    <br>
+    Forsøkte bokstaver:
+    <div id="brukt"></div>
     <br>
     <div id="feil"></div>
     <br>
-    Gjett bokstav: <input id="bokstav" type="text">
-    <br>
-    <input id="gjett" type="button" value="Gjett">
+    <div id="input">
+        <input id="bokstav" type="text" style="text-align: center; font-size: 1.2em;">
+        <br><br>
+        <input id="gjett" type="button" value="Gjett">
+    </div>
 </body>
 </html>
