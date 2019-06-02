@@ -9,6 +9,7 @@ var pointB = [canvasSize-r,canvasSize-r];
 var pointC = [canvasSize/2,r];
 var startPoints = [pointA, pointB, pointC];
 var point = [];
+var iterations = 1;
 
 function onLoad() {
     canvas = document.getElementById("myCanvas");
@@ -33,7 +34,7 @@ function onLoad() {
     ctx.fill();
 
     // iterate
-    setInterval(iterate, 1);
+    setInterval(iterate, 3);
 }
 
 function iterate() {
@@ -45,6 +46,12 @@ function iterate() {
     ctx.arc(point[0], point[1], r, 0, 2 * Math.PI);
     ctx.fillStyle = "white";
     ctx.fill();
+    iterations++;
+    showIterations();
+}
+
+function showIterations() {
+    document.getElementById("iterations").innerHTML = `Iterations: ${iterations}`;
 }
 
 function vector(a,b) {
