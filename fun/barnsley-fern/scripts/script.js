@@ -52,22 +52,3 @@ function showIterations() {
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
-
-/*
-    var canvas = document.getElementById("oppg1");
-    var ctx = canvas.getContext('2d');
-    ctx.beginPath();
-    ctx.rect(20,200,660,230);
-    ctx.fillStyle = 'rgb(200,0,0)';
-    ctx.fillRect(20,200,660,230);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(20,200);
-    ctx.lineTo(350,20);
-    ctx.lineTo(680,200);
-
-    ctx.beginPath();
-    ctx.arc(startPoints[i][0], startPoints[i][1], r, 0, 2 * Math.PI);
-    ctx.fillStyle = "white";
-    ctx.fill();
-*/
