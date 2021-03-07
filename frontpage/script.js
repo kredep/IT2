@@ -20,8 +20,7 @@ var timer = 0;
 var baseURL = {
     api: 'https://api.github.com/repos/kredep/IT2/',
     raw: 'https://raw.githubusercontent.com/kredep/IT2/master/',
-    page: 'https://kredep.github.io/IT2/',
-    token: 'c166d1527324b319f9ba3b3a1bca7344682550ec'
+    page: 'https://kredep.github.io/IT2/'
 }
 
 function shuffle(a) {
@@ -38,7 +37,7 @@ function shuffle(a) {
 async function getSha() {
     return new Promise(resolve => {
         var xhr = new XMLHttpRequest()
-        xhr.open('GET', baseURL.api + 'branches?access_token=' + baseURL.token, true)
+        xhr.open('GET', baseURL.api + 'branches', true)
         xhr.onload = function () {
             try {
                 resolve(
@@ -58,7 +57,7 @@ async function getRawTree() {
     var tree = await getSha()
     return new Promise(resolve => {
         var xhr = new XMLHttpRequest()
-        xhr.open('GET', baseURL.api + 'git/trees/' + tree + '?recursive=1&access_token=' + baseURL.token, true)
+        xhr.open('GET', baseURL.api + 'git/trees/' + tree + '?recursive=1', true)
         xhr.onload = function () {
             resolve(JSON.parse(this.response))
         }
